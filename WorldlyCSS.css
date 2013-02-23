@@ -1,0 +1,531 @@
+  body {
+    background-color:#66CCFF;
+    margin:0;
+  }
+
+  /*Menu Body*/
+  ul#menu {
+    width:100%;
+    height:100px;
+    background:url(bg.png) repeat-x scroll;
+    list-style:none;
+    margin:0;
+    padding:0;
+    padding-top:10px;
+  }
+
+  /*Float elements to the left for horizontal display*/
+  ul#menu li {
+    float:left;
+  }
+
+  /*Link common attributes*/
+  ul#menu li a {
+    display:block;
+    height:65px;
+    position:relative;
+  }
+
+  /*Class 'home'*/
+  .home {
+    background:url(HomeSprite.png) no-repeat scroll top;
+    width:127px;
+  }
+
+  /*hover for home*/
+  .home:hover, .homeActive {
+    background:url(HomeSprite.png) no-repeat scroll bottom;
+    background-position:0px -67px;
+    width:127px;
+  }
+
+  /*Class 'questions'*/
+  .questions {
+    background:url(QuestionsSprite.png) no-repeat scroll top;
+    width:127px;
+  }
+
+
+  /*hover for questions*/
+  .questions:hover,.questionsActive {
+    background:url(QuestionsSprite.png) no-repeat scroll bottom;
+    background-position:0px -67px;
+    width:127px;
+  }
+
+  /*Class 'history'*/
+  .history {
+    background:url(HistorySprite.png) no-repeat scroll top;
+    width:127px;
+  }
+
+  /*hover for history*/
+  .history:hover,.historyActive {
+    background:url(HistorySprite.png) no-repeat scroll bottom;
+    background-position:0px -67px;
+    width:127px;
+  }
+
+  /*Class 'account'*/
+  .account {
+    background:url(AccountSprite.png) no-repeat scroll top;
+    width:127px;
+  }
+
+  /*hover for account*/
+  .account:hover,.accountActive {
+    background:url(AccountSprite.png) no-repeat scroll bottom;
+    background-position:0px -67px;
+    width:127px;
+  }
+
+  /*Span (on hover) common attributes*/
+  ul#menu li a span {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index:100;
+  }
+
+  /*The information for the logo on the menu bar*/
+  .logo {
+  background:url(WorldlyLogo2.png) no-repeat scroll;
+  height:65px;
+  width:210px;
+  padding-top:8px;
+  }
+
+  /*The white space to push account over to the right*/
+  .restOfBar {
+  width:282px;
+  }
+
+  /*Span display pointer*/
+  ul#menu li a span:hover {
+    cursor:pointer;
+  }
+  .loginLink{
+  float:right;
+  width:1150px;
+  }
+
+  /*The white space for the website content*/
+  #whiteSpace {
+    -moz-box-shadow: 0 5px 10px 3px #6497B0;
+    -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+    box-shadow: 0 5px 10px 3px #6497B0;
+    border-radius:5px;
+    -moz-border-radius:15px;
+    background-color: #F5F5F5;
+    margin-left:auto;
+    margin-right:auto;
+    height:auto;
+    width:1000px;  
+    padding-bottom:none;
+  }
+
+  /*The contents container for the menu elements - width should be set to
+    same as the white space above*/
+  #contents1 {
+    width:1000px;
+    height:1000px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+ 
+/* ----------------------------------------------------------------- HOME PAGE CSS--------- */
+ 
+  #linkRegLog{
+    text-align:left;
+    height:5px;   
+    width:1100px;
+   
+  }
+  /* table that contains text field and button for ASK question */
+  #askMe{
+    padding-bottom:30px;
+    padding-top:30px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+ 
+  /* text box for ask questions */
+  #question{
+    width:400px;
+    height:20px;
+  }
+
+  /* the button "ASK!" */
+  #askButton{
+    width:110px;
+    height:30px;
+  }
+  #askButton:hover{
+    background-color:#66CCFF;
+  }
+
+ /* div for the answer buttons */
+ #answerButtons{
+    height:400px;
+    width:1000px;
+ }
+
+ /* size of the text fields of login */
+  #userHome{
+    height:15px;
+    width:170px;
+  }
+  #passHome{
+    height:15px;
+    width:170px;
+  }
+
+  /* the tabs for questions */
+  #tabs{
+    background-color:#F5F5F5;
+    height:auto;
+    width:auto;
+    margin-left:auto;
+    margin-right:auto;
+    border:none;
+  }
+
+  /* every tab consists of separate div...this is the first tab*/
+  #tabs-1{
+    background-color:white;
+    width:auto;
+    height:auto;
+  }
+
+#tabs-2{
+    background-color:white;
+    width:auto;
+    height:auto;
+  }
+
+#tabs-3{
+    background-color:white;
+    width:auto;
+    height:auto;
+  }
+  /* the table for buttons (answers) */
+  #buttonsTable{
+    padding-top:40px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  #buttonsRows{
+    border-collapse: collapse;
+  }
+  td{ 
+    padding-top:5px;
+  }
+
+  /* next bits are for the different answer buttons */
+  #answer1{
+    border-color:#FF6666;
+    background:#FF6666;
+    width:150px;
+    height:40px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 8px;
+  }
+  #answer1:hover{
+    background:#FF9966;
+  }
+
+  #answer2{
+    border-color:#66FF66;
+    background:#66FF66;
+    width:150px;
+    height:40px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 8px;
+  }
+  #answer2:hover{
+  background:#99FF99;
+  }
+
+  #answer3{
+    border-color:#FFFF66;
+    background:#FFFF66;
+    width:150px;
+    height:40px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 8px;
+  } 
+  #answer3:hover{
+    background:#FFFF99;
+  }
+
+  #answer4{
+    border-color:#FF99CC;
+    background:#FF99CC;
+    width:150px;
+    height:40px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 8px;
+  }
+  #answer4:hover{
+  background:#FFCCFF;
+  }
+
+  #answer5{
+    border-color:#99FFFF;
+    background:#99FFFF;
+    width:150px;
+    height:40px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 8px;
+  } 
+  #answer5:hover{
+    background:#CCFFFF;
+  }  
+
+  #answer6{
+    border-color:#CC99CC;
+    background:#CC99CC;
+    width:150px;
+    height:40px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 8px;
+  }
+  #answer6:hover{
+    background:#CC99FF;
+  }
+
+  #questionText{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* the text for questions */
+  p{
+    text-align:center;
+    font-size:30px;
+  }
+
+/* ------------------------------------------------------ACCOUNT PAGE CSS --- LORA */
+
+  
+ /*The white space for the website content*/
+  #whiteSpaceLo {
+    -moz-box-shadow: 0 5px 10px 3px #6497B0;
+    -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+    box-shadow: 0 5px 10px 3px #6497B0;
+    border-radius:5px;
+    -moz-border-radius:15px;
+    background-color:#F5F5F5;
+    margin-left:auto;
+    margin-right:auto;
+    height:auto;
+    width:84%;
+  }
+  /* the area for register information, div */
+  #register{
+    -moz-box-shadow: 0 5px 10px 3px #B0B0B0;
+    -webkit-box-shadow: 0 5px 10px 3px #B0B0B0;
+    box-shadow: 0 5px 10px 3px #6497B0;
+    border-radius:-4px;
+    -moz-border-radius:15px;
+  }
+
+  #separator{
+    background-color:#66CCFF;
+    height:30%;
+    width:100%;
+  }
+  /* the area for log in details, div */
+  #login{
+      padding-bottom:10%;
+  }
+ /* Already have an account? */
+ #text{
+   text-align:left;
+   margin-left:4%;
+   margin-right:auto;
+   padding-top:7%;
+   font-size:16px;
+   font-family:Arial,serif;;
+   color:#505050; 
+   width: 50%;
+  }
+
+/* text that is heading for your details section */
+ #yourAccountHeading{
+   text-align:center;
+   padding-top:7%;
+   font-size:35px;
+   font-family:Arial,serif;
+   color:#505050; 
+   height:auto;
+}
+ #detailsArea{
+    margin-left:auto;
+    margin-right:auto;
+    height:500px;
+  }
+
+ /* field around the form boxes */
+ #fieldSet{
+    -webkit-border-radius: 8px;
+    -moz-box-shadow: 0 5px 10px 3px #6497B0;
+    -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+    box-shadow: 0 3px 5px 1px #6497B0;
+    border-radius:8px;
+    -moz-border-radius:8px;
+    width:auto;
+    height:auto;
+    margin-right:auto;
+    margin-left:auto;
+    color:#505050;   
+ }
+/* fieldset of the registration form */
+ #fieldSet2{
+    -webkit-border-radius: 8px;
+    -moz-box-shadow: 0 5px 10px 3px #6497B0;
+    -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+    box-shadow: 0 3px 5px 1px #6497B0;
+    border-radius:8px;
+    -moz-border-radius:8px;
+    width:auto;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    color:#505050;
+ }
+ /* the text in registartion table is on one line */
+ td {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 125px;
+    height: 25px;
+}
+ /*div that contains login form*/
+ #divForm{
+    width:260px;
+    height:150px;
+    margin-left:auto;
+    margin-top:2%;
+    color:none;
+    margin-left:auto;
+    margin-right:auto;
+    font-family:Arial, serif;
+ }
+ /* div that contains registration form*/
+ #divForm2{
+    width:260px;
+    height:300px;
+    margin-left:auto;
+    margin-top:2%;
+    color:#505050;
+    margin-right:auto;
+    font-family:Arial,serif;
+ }
+
+ /* the footer */
+ #footer{
+    text-align:right;
+    height:5px;
+    padding-top:20px;   
+    width:auto;
+   
+ }
+
+/* ----------------------------------------------------------HISTORY PAGE CSS ------ PEDRO */
+
+ /* The white space for the website content */
+  #whiteSpace2{
+    -moz-box-shadow: 0 5px 10px 3px #6497B0;
+    -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+    box-shadow: 0 5px 10px 3px #6497B0;
+    border-radius:5px;
+    -moz-border-radius:15px;
+    background-color:#F5F5F5;
+    margin-left:auto;
+    margin-right:auto;
+    height:800px;
+    width:930px;
+    padding-top:30px; 
+  } 
+
+ /* Available questions */
+ #questions{
+   text-align:left;
+   margin-left:290px;
+   padding-top:2%;
+   font-family:Arial,serif;
+   font-size:50px;
+   color:#505050; 
+   width: 5570px;
+  }
+
+ /* From */
+ #from{
+   float:left;
+   width:20%;
+   margin-left:280px;
+   padding-top:5%;
+   font-size:20px;
+   color:#505050; 
+  } 
+
+ /* Type */
+ #type{
+   float:left;
+   width: 20%
+   margin-right:480px;
+   padding-top:5%;
+   font-size:20px;
+   color:#505050; 
+  }
+
+
+ /* Search */
+ #search{
+   float:right;
+   padding-top:5%;
+   width: 32%
+  }
+
+ /* Image */
+ #image{
+   padding-top:13%;
+   margin-left:2%;
+  }
+
+ /* AboutUs and FAQ*/ 
+ #footer1{
+   text-align:right;
+   margin-right:6%;
+   padding-top:6%;
+ }
+ /* --------------------------------------------------------------------------MAP */
+ 
+*[id^='map']{ 
+   height: 600px;
+   width: 900px;
+   margin-left:auto;
+   margin-right:auto;
+   -moz-box-shadow: 0 5px 10px 3px #6497B0;
+   -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+   box-shadow: 0 5px 10px 3px #6497B0;
+   border-radius:5px;
+   -moz-border-radius:15px;
+}

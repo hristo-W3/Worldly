@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Worldly: You Ask It, We Map It</title>
+
+
+
+<head>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="WorldlyCSS.css">
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+
+
+ <!--[if lte IE 8]>
+     
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+ 
+<![endif]-->
+
+
+<script>
+
+$(function() {
+
+$( "#tabs" ).tabs();
+
+});
+
+</script>
+
+</head>
+
+
+<body>
+ 
+   
+  <ul id="menu">
+    
+  <div id="contents1">
+    	
+    <li><a href="#" class="logo"><span></span></a></li>
+    	
+    <li><a href="#" class="homeActive"><span></span></a></li>
+    	
+    <li><a href="Questions.html" class="questions"><span></span></a></li>	
+    	
+    <li><a href="History.html" class="history"><span></span></a></li>	
+    	
+    <li><a href="" class="restOfBar"></a></li>
+    	
+    <li><a href="Account.html" class="account"><span></span></a></li>
+	
+    <div class="loginLink"><a href="">Login/Register</a></div>
+    
+    </div>
+    
+  </ul>
+    
+  <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+    
+
+  <div id="whiteSpace">     
+	
+  
+    <div id="questionSpace">
+	  
+      <table id="askMe">
+	  
+        <tr id="askMe">
+	  
+	  <td><input id="question" type="text" name="question"></td>
+	 
+	  <td> <input id="askButton" type="submit" value="Ask!"/></td>
+	  
+	</tr>
+	  
+      </table>
+	
+    </div>	
+        
+
+    <div id="tabs">
+	 
+      <ul>
+	 
+        <li><a href="#tabs-1">Question 1</a></li>
+	 
+	<li><a href="#tabs-2">Question 2</a></li>
+	 
+	<li><a href="#tabs-3">3</a></li>
+	 
+	<li><a href="#tabs-4">4</a></li>
+	 
+	<li><a href="#tabs-5">5</a></li>
+	 
+      </ul>
+	 
+
+     <div id="tabs-1">
+	  
+      <p>What OS do you use?</p>
+	  
+      <div id="map1"></div>
+ 
+    	  
+	<script type="text/javascript">
+    	   
+	var map = L.map('map1').setView([53.477, -2.246], 15);
+    
+    	    
+	
+        var KEY = 'e3989c63a20c4e83aa5d3644bc050b27';
+    	    
+	var TILES = 'http://{s}.tile.cloudmade.com/'+KEY+'/997/256/{z}/{x}/{y}.png';
+    	 
+	var ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
+    
+    	    
+	
+	L.tileLayer(TILES, {attribution: ATTR}).addTo(map);
+    
+    	  
+	</script>
+	 
+	
+
+	<table id="buttonsTable">
+	  
+	  <tr id="buttonsRows">
+	  
+	    <td><input id="answer1" type="submit" value="WINDOWS"/></td>
+	  
+	    <td><input id="answer2" type="submit" value="LINUX"/></td>
+	  
+	    <td><input id="answer3" type="submit" value="MAC"/></td>
+	  
+	  </tr>
+	  <tr id="buttons">
+	  
+	    <td><input id="answer4" type="submit" value="OTHER"/></td>
+	  
+	    <td> <input id="answer5" type="submit" value="Don't use"/></td>
+	  
+	    <td> <input id="answer6" type="submit" value="I don't know"/></td>
+	  
+	  </tr>
+	
+	</table>
+
+	 
+        </div>
+	 
+
+      <div id="tabs-2">
+	  
+	 <p>Pepsi or Coca-Cola?</p>
+	  
+	    
+	   <div id="map2"></div>
+ 
+    	  
+	   <script type="text/javascript">
+    	    
+	   var map = L.map('map2').setView([53.477, -2.246], 15);
+    
+    	    
+	   var KEY = 'e3989c63a20c4e83aa5d3644bc050b27';
+    	    
+	   var TILES = 'http://{s}.tile.cloudmade.com/'+KEY+'/997/256/{z}/{x}/{y}.png';
+    	    
+ 	   var ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
+    
+    	    
+
+	L.tileLayer(TILES, {attribution: ATTR}).addTo(map);   
+    	  
+	</script>
+	 
+	
+
+       <table id="buttonsTable">
+	  
+	 <tr id="buttonsRows">
+	  
+	   <td><input id="answer1" type="submit" value="Pepsi"/></td>
+	  
+	   <td><input id="answer2" type="submit" value="Coca-Cola"/></td>
+	  
+	   <td><input id="answer3" type="submit" value="Other"/></td>
+	  
+	 </tr>
+	
+       </table>
+	 
+       </div>
+	 
+
+      <div id="tabs-3">
+<p>WHEN?</p>
+</div>
+
+      <div id="tabs-4"><p>HOW?</p></div>
+	 
+
+      <div id="tabs-5">
+<p>WHAT?</p></div>	
+
+       
+    </div> 
+     
+
+    <footer id="footer">
+<a href="aboutUs.html">AboutUs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="fag.html">FAQ</a>
+</footer>
+    
+
+  </div>
+    
+
+
+</body>
+
+
+</html>	
