@@ -168,13 +168,13 @@
     background-color:#66CCFF;
   }
 
- /* div for the answer buttons */
- #answerButtons{
+  /* div for the answer buttons */
+  #answerButtons{
     height:400px;
     width:1000px;
- }
+  }
 
- /* size of the text fields of login */
+  /* size of the text fields of login */
   #userHome{
     height:15px;
     width:170px;
@@ -201,13 +201,13 @@
     height:auto;
   }
 
-#tabs-2{
+  #tabs-2{
     background-color:white;
     width:auto;
     height:auto;
   }
 
-#tabs-3{
+  #tabs-3{
     background-color:white;
     width:auto;
     height:auto;
