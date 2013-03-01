@@ -1,112 +1,194 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Worldly: You Ask It, We Map It</title>
 
 <head>
 
+<title>Worldly: You Ask It, We Map It</title>
+
 <link rel="stylesheet" type="text/css" href="WorldlyCSS.css">
+
 <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+<script language=javascript type="text/javascript">
+
+  function validateRegister()
+  {
+    var username = document.forms["registerForm"]["userReg"].value;
+    if (username == null || username == "")
+    {
+      alert("You must enter a username");
+      return false;
+    }
+
+    var password = document.forms["registerForm"]["passReg"].value;
+    var confPassword = document.forms["registerForm"]["confPass"].value;
+    if (password.length < 6)
+    {
+      alert("Your password must be at least 6 characters long.");
+      return false;
+    }
+    else if (password != confPassword)
+    {
+      alert("Your chosen passwords do not match.");
+      return false;
+    }
+  }
+
+</script>
+
+</head>
 
 <body>
 
-<ul id="menu">
-  <div id="contents1">
-    <li><a href="#" class="logo"><span></span></a></li>
+<ul id="menu" alt="basicMenuBar">
+  <div id="contents1" alt="menuContents">
+    <li><a href="#" class="logo" alt="logo"><span></span></a></li>
     <li><a href="Home.html" class="home"><span></span></a></li>
-    <li><a href="Questions.html" class="questions"><span></span></a></li>	
-    <li><a href="History.html" class="history"><span></span></a></li>	
-    <li><a href="" class="restOfBar"></a></li>
-    <li><a href="#" class="accountActive"><span></span></a></li>
+    <li><a href="Questions.html" class="questions" alt="questionsMenu"><span></span></a></li>	
+    <li><a href="History.html" class="history" alt="historyMenu"><span></span></a></li>	
+    <li><a href="" class="restOfBar" alt="freeBarSpace"></a></li>
+    <li><a href="#" class="accountActive" alt="accountMenu"><span></span></a></li>
   </div>
   </ul>
 
-    <div id="whiteSpace">
-      <div id="login">
+    <div id="freeSpace" alt="workingArea">
 
-      <div id="text">
+ <div class="container">
+    <div class="login">
+      <label id="loginTEXT">Login to Worldly</label>
+      <form method="post" action="index.html">
+        <p><input type="text" name="login" value="" placeholder="Username"></p>
+        <p><input type="password" name="password" value="" placeholder="Password"></p>
+        <p><input type="submit" name="commit" value="Login" id="loginButton"></p>
+      </form>
+    </div>
+    
+    <div class="register">
+      <label id="registerText">Register</label>
+      <form name="registerForm" onsubmit="return validateRegister()" method="post" action="index.html">
+        <p>Username:<input type="text" name="userReg"></p>
+        <p>Password:<input type="password" name="passReg"></p>
+	<p>Confirm Password:<input type="password" name="confPass" alt="confirmPassword"></p>
+	<p>Age:            
+		<select name="ages" alt="SelectAgeGroup">
+                <option selected alt="defaultMessage">Choose group</option>
+                <option value="" style="display:none;"></option>
+		<option value="teens" alt="teenagers">13-18</option>
+		<option value="upTo25" alt="upTo25">19-25</option>
+                <option value="upTo40" alt="upTo40">26-40</option>
+                <option value="upTo65" alt="upTo65">41-65</option>
+	        <option value="over65" alt="over65">65+</option>
+		</select>
+	</p>
+	<p>Gender:<input type="radio" name="gender" alt="male">Male 
+                     <input type="radio" name="gender" alt="female">Female</td></p>
+	<p>Location:
+		        <select name="location">
+                        <option selected>Choose area</option>
+		        <option value="southern" alt="SouthEngland">Southern England</option>
+		        <option value="midlands" alt="midlands">Midlands</option>
+		        <option value="northernEng" alt="NorthernEngland">Northern England</option>
+                        <option value="scotland" alt="scotland">Scotland</option>
+                        <option value="wales" alt="wales">Wales</option>
+                        <option value="isleOfMan" alt="IsleOfMan">Isle of Man</option>
+  		        <option value="northernIre" alt="NorthernIreland">Northern Ireland</option>
+                    	<option value="republicOfIre" alt="RepublicOfIreland">Republic of Ireland</option>
+		        </select>
+	</p>
+        <p><input type="submit" name="commit" value="Register" id="loginButton"></p>
+      </form>
+    </div>
+
+
+  </div>
+     <!-- <div id="login">
+
+      <div id="text" alt="textOnAccountPage">
         <h>Already have an account? <b>Sign in</b> here</h>
       </div>
 
-      <div id="divForm">
-        <form id="form" action="">
+      <div id="divForm" alt="LoginForm">
+        <form id="formLog" action="">
           <fieldset id="fieldSet">
-          <!-- <legend>Login:</legend> -->
-	        Username: <input id="user" type="text" name="user"><br>	
-	        Password: <input id="pass" type="password" name="password">
-	        <input type="submit" value="Login"/>
+           <legend>Login:</legend> 
+	        Username: <input id="user" type="text" name="user" alt="username"><br>	
+	        Password: <input id="pass" type="password" name="password" alt="password">
+	        <input type="submit" value="Login" alt="submit"/>
 	      </fieldset>
 	   </form>
       </div>
       </div>
 
-      <div id="register">
+      <div id="register" alt="registration">
 
-      <div id="text">
+      <div id="text" alt="welcomeNewUser">
         <h>New to <b>Worldly</b>? Join us and create an account here</h>
       </div>
 
-      <div id="divForm2">
-        <form id="form" action="">
+      <div id="divForm2" alt="registrationForm">
+        <form id="formReg" action="">
           <fieldset id="fieldSet2">  
             <table id="groupReg">
                 <tr>
-                <td>*Username:</td>
-                <td><input id="user" type="text" name="user"></td>
+                <td>Username:</td>
+                <td><input id="user" type="text" name="user" alt="username"></td>
                 </tr>
                 <tr>
                 <td>Password:</td>
-                <td><input id="pass" type="password" name="password"></td>
+                <td><input id="pass" type="password" name="password" alt="password"></td>
                 </tr>
                 <tr>
                 <td>Confirm Password:</td>
-                <td><input id="confPass" type="password" name="confPassword"></td>
+                <td><input id="confPass" type="password" name="confPassword" alt="confirmPassword"></td>
                 </tr>
                 <tr>
-                <td>Age:</td>
+                <td alt="age">Age:</td>
                 <td><form action="">                
-		            <select name="ages">
-                    <option selected>Choose group</option>
-                    <option value="" style="display:none;"></option>
-		            <option value="teens">13-18</option>
-		            <option value="upTo25">19-25</option>
-                    <option value="upTo40">26-40</option>
-                    <option value="upTo65">41-65</option>
-		            <option value="over65">65+</option>
-		            </select>
+		        <select name="ages" alt="SelectAgeGroup">
+                    	<option selected alt="defaultMessage">Choose group</option>
+                    	<option value="" style="display:none;"></option>
+		        <option value="teens" alt="teenagers">13-18</option>
+		        <option value="upTo25" alt="upTo25">19-25</option>
+                    	<option value="upTo40" alt="upTo40">26-40</option>
+                    	<option value="upTo65" alt="upTo65">41-65</option>
+		        <option value="over65" alt="over65">65+</option>
+		        </select>
 	             </form>
                  </td>
                  </tr>
                  <tr>
-                 <td>Gender:</td>
-                 <td><input id="gender" type="radio" name="gender">Male 
-                     <input id="gender" type="radio" name="gender">Female</td>
+                 <td alt="Gender">Gender:</td>
+                 <td><input id="gender" type="radio" name="gender" alt="male">Male 
+                     <input id="gender" type="radio" name="gender" alt="female">Female</td>
                  </tr>
                  <tr>
-                 <td>Location:</td> 
+                 <td alt="location">Location:</td> 
                  <td><form action="">
-		                <select name="location">
+		        <select name="location">
                         <option selected>Choose area</option>
-		                <option value="southern">Southern England</option>
-		                <option value="midlands">Midlands</option>
-		                <option value="northernEng">Northern England</option>
-                        <option value="scotland">Scotland</option>
-                        <option value="wales">Wales</option>
-                        <option value="isleOfMan">Isle of Man</option>
-  		                <option value="northernIre">Northern Ireland</option>
-                        <option value="republicOfIre">Republic of Ireland</option>
-		                </select>
-	                  </form></td>
+		        <option value="southern" alt="SouthEngland">Southern England</option>
+		        <option value="midlands" alt="midlands">Midlands</option>
+		        <option value="northernEng" alt="NorthernEngland">Northern England</option>
+                        <option value="scotland" alt="scotland">Scotland</option>
+                        <option value="wales" alt="wales">Wales</option>
+                        <option value="isleOfMan" alt="IsleOfMan">Isle of Man</option>
+  		        <option value="northernIre" alt="NorthernIreland">Northern Ireland</option>
+                    	<option value="republicOfIre" alt="RepublicOfIreland">Republic of Ireland</option>
+		        </select>
+	              </form>
+		  </td>
                   </tr>
             </table>              
-	        <input type="submit" value="Register"  />
+	        <input type="submit" value="Register" alt="registerButton"/>
 	      </fieldset>
 	    </form>
-      </div>
-
-      <div id="footer">
-          AboutUs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAQ
+      </div>-->
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <div id="footerAccount" alt="footer">
+      <a href="aboutUs.html">AboutUs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="fag.html">FAQ</a>
       </div>
     </div>
+   
 
 </body>
 
