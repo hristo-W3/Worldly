@@ -131,7 +131,7 @@
     same as the white space above*/
   #contents1 {
     width:1000px;
-    height:1000px;
+    height:auto;
     margin-left:auto;
     margin-right:auto;
   }
@@ -139,11 +139,16 @@
  
 /* ----------------------------------------------------------------- HOME PAGE CSS--------- */
  
-  #linkRegLog{
+/*  #linkRegLog{
     text-align:left;
     height:5px;   
     width:1100px;
    
+  }
+*/ 
+
+  .loginLink{
+    text-align:right;
   }
   /* table that contains text field and button for ASK question */
   #askMe{
@@ -156,25 +161,32 @@
   /* text box for ask questions */
   #question{
     width:400px;
-    height:20px;
+    height:35px;
+    border-radius: 3px;
   }
 
   /* the button "ASK!" */
-  #askButton{
+  #askButton, #loginButton{
     width:110px;
     height:30px;
+    border-radius: 6px;
+    
   }
-  #askButton:hover{
+  #askButton:hover, #loginButton:hover{
     background-color:#66CCFF;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 6px;
   }
 
-  /* div for the answer buttons */
-  #answerButtons{
+ /* div for the answer buttons */
+ #answerButtons{
     height:400px;
     width:1000px;
-  }
+ }
 
-  /* size of the text fields of login */
+ /* size of the text fields of login */
   #userHome{
     height:15px;
     width:170px;
@@ -184,7 +196,7 @@
     width:170px;
   }
 
-  /* the tabs for questions */
+  /* the tabs for questions 
   #tabs{
     background-color:#F5F5F5;
     height:auto;
@@ -192,26 +204,15 @@
     margin-left:auto;
     margin-right:auto;
     border:none;
-  }
+  }*/
 
-  /* every tab consists of separate div...this is the first tab*/
-  #tabs-1{
+  /* every tab consists of separate div formated as follows*/
+  #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5{
     background-color:white;
     width:auto;
     height:auto;
   }
 
-  #tabs-2{
-    background-color:white;
-    width:auto;
-    height:auto;
-  }
-
-  #tabs-3{
-    background-color:white;
-    width:auto;
-    height:auto;
-  }
   /* the table for buttons (answers) */
   #buttonsTable{
     padding-top:40px;
@@ -227,8 +228,11 @@
 
   /* next bits are for the different answer buttons */
   #answer1{
+    border-style:solid;
+    border-width:3px;
     border-color:#FF6666;
-    background:#FF6666;
+    background-color:none;
+   /* background:#FF6666;*/
     width:150px;
     height:40px;
     -moz-border-radius: 20px;
@@ -236,13 +240,16 @@
     -khtml-border-radius: 20px;
     border-radius: 8px;
   }
-  #answer1:hover{
+/*  #answer1:hover{
     background:#FF9966;
   }
-
+*/
   #answer2{
-    border-color:#66FF66;
-    background:#66FF66;
+    background-color:none;
+    border-style:solid;
+    border-width:3px;
+    border-color:#00FF00;
+    /*background:#66FF66;*/
     width:150px;
     height:40px;
     -moz-border-radius: 20px;
@@ -250,13 +257,16 @@
     -khtml-border-radius: 20px;
     border-radius: 8px;
   }
-  #answer2:hover{
+ /* #answer2:hover{
   background:#99FF99;
   }
-
+*/
   #answer3{
-    border-color:#FFFF66;
-    background:#FFFF66;
+    background-color:none;
+    border-style:solid;
+    border-width:3px;
+    border-color:#FFFF00;
+    /*background:#FFFF66; */
     width:150px;
     height:40px;
     -moz-border-radius: 20px;
@@ -264,13 +274,16 @@
     -khtml-border-radius: 20px;
     border-radius: 8px;
   } 
-  #answer3:hover{
+ /* #answer3:hover{
     background:#FFFF99;
   }
-
+*/
   #answer4{
-    border-color:#FF99CC;
-    background:#FF99CC;
+    background-color:none;
+    border-style:solid;
+    border-width:3px;
+    border-color:#FF00CC;
+    /*background:#FF99CC;*/
     width:150px;
     height:40px;
     -moz-border-radius: 20px;
@@ -278,13 +291,16 @@
     -khtml-border-radius: 20px;
     border-radius: 8px;
   }
-  #answer4:hover{
+  /*#answer4:hover{
   background:#FFCCFF;
   }
-
+*/
   #answer5{
-    border-color:#99FFFF;
-    background:#99FFFF;
+    background-color:none;
+    border-style:solid;
+    border-width:3px;
+    border-color:#00CCFF;
+    /*background:#99FFFF;*/
     width:150px;
     height:40px;
     -moz-border-radius: 20px;
@@ -292,13 +308,16 @@
     -khtml-border-radius: 20px;
     border-radius: 8px;
   } 
-  #answer5:hover{
+ /* #answer5:hover{
     background:#CCFFFF;
   }  
-
+*/
   #answer6{
-    border-color:#CC99CC;
-    background:#CC99CC;
+    background-color:none;
+    border-style:solid;
+    border-width:3px;
+    border-color:#9966CC;
+   /* background:#CC99CC; */
     width:150px;
     height:40px;
     -moz-border-radius: 20px;
@@ -306,38 +325,33 @@
     -khtml-border-radius: 20px;
     border-radius: 8px;
   }
-  #answer6:hover{
+ /* #answer6:hover{
     background:#CC99FF;
   }
-
+*/
   #questionText{
     margin-left:auto;
     margin-right:auto;
   }
 
   /* the text for questions */
-  p{
+  #actualQuestion{
     text-align:center;
     font-size:30px;
   }
 
 /* ------------------------------------------------------ACCOUNT PAGE CSS --- LORA */
-
   
- /*The white space for the website content*/
-  #whiteSpaceLo {
-    -moz-box-shadow: 0 5px 10px 3px #6497B0;
-    -webkit-box-shadow: 0 5px 10px 3px #6497B0;
-    box-shadow: 0 5px 10px 3px #6497B0;
-    border-radius:5px;
-    -moz-border-radius:15px;
-    background-color:#F5F5F5;
+  #freeSpace{
+    background-color:none;
     margin-left:auto;
     margin-right:auto;
     height:auto;
-    width:84%;
+    width:1000px;  
   }
-  /* the area for register information, div */
+
+
+  /* the area for register information, div 
   #register{
     -moz-box-shadow: 0 5px 10px 3px #B0B0B0;
     -webkit-box-shadow: 0 5px 10px 3px #B0B0B0;
@@ -350,7 +364,7 @@
     background-color:#66CCFF;
     height:30%;
     width:100%;
-  }
+  }*/
   /* the area for log in details, div */
   #login{
       padding-bottom:10%;
@@ -361,7 +375,7 @@
    margin-left:4%;
    margin-right:auto;
    padding-top:7%;
-   font-size:16px;
+   font-size:17px;
    font-family:Arial,serif;;
    color:#505050; 
    width: 50%;
@@ -418,7 +432,7 @@
     height: 25px;
 }
  /*div that contains login form*/
- #divForm{
+/* #divForm{
     width:260px;
     height:150px;
     margin-left:auto;
@@ -427,9 +441,9 @@
     margin-left:auto;
     margin-right:auto;
     font-family:Arial, serif;
- }
+ }*/
  /* div that contains registration form*/
- #divForm2{
+ /*#divForm2{
     width:260px;
     height:300px;
     margin-left:auto;
@@ -438,85 +452,121 @@
     margin-right:auto;
     font-family:Arial,serif;
  }
-
+*/
  /* the footer */
  #footer{
     text-align:right;
-    height:5px;
-    padding-top:20px;   
+    height:20px;
+    padding-top:20px; 
+    padding-bottom:5px; 
     width:auto;
-   
+    background-color:#F5F5F5; 
+ }
+ #formLog, #formReg{
+    background-color:#F5F5F5;
+    
+ }
+/*------------------------------------------------------------QUESTION PAGE----------------*/
+ #addNewQuestion{
+    width:auto;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:5px;
+ }
+ 
+ #textTitleForAddNew{
+    text-align:center;
+    font-size:30px;
+    color:#505050;
+ }
+ #formAddQuestion{
+    width:260px;
+    height:300px;
+    padding-top:10px;
+    margin-left:auto;
+    margin-right:auto;  
+    
  }
 
 /* ----------------------------------------------------------HISTORY PAGE CSS ------ PEDRO */
 
- /* The white space for the website content */
-  #whiteSpace2{
-    -moz-box-shadow: 0 5px 10px 3px #6497B0;
-    -webkit-box-shadow: 0 5px 10px 3px #6497B0;
-    box-shadow: 0 5px 10px 3px #6497B0;
-    border-radius:5px;
-    -moz-border-radius:15px;
-    background-color:#F5F5F5;
-    margin-left:auto;
-    margin-right:auto;
-    height:800px;
-    width:930px;
-    padding-top:30px; 
-  } 
-
- /* Available questions */
- #questions{
-   text-align:left;
-   margin-left:290px;
-   padding-top:2%;
-   font-family:Arial,serif;
-   font-size:50px;
-   color:#505050; 
-   width: 5570px;
-  }
-
+ #FromAndType{
+  margin-left:auto;
+  margin-right:auto;
+  width:500px;
+  height:40px;
+  padding-top:7px;
+  padding-bottom:7px;
+ }
  /* From */
  #from{
    float:left;
-   width:20%;
-   margin-left:280px;
-   padding-top:5%;
-   font-size:20px;
+   width:auto;
+   margin-left:auto;
+   margin-right:auto;
    color:#505050; 
+   padding-right:10px;
   } 
-
  /* Type */
  #type{
    float:left;
-   width: 20%
-   margin-right:480px;
-   padding-top:5%;
-   font-size:20px;
+   width: auto;
+   margin-left:auto;
+   margin-right:auto;
    color:#505050; 
   }
-
-
  /* Search */
  #search{
    float:right;
-   padding-top:5%;
-   width: 32%
+   width: auto;
+   margin-left:auto;
+   margin-right:auto;
   }
-
- /* Image */
- #image{
-   padding-top:13%;
-   margin-left:2%;
+/* follows code for the tabs on history page */
+ .ui-tabs-vertical{
+   width: 55em;
+   
   }
-
- /* AboutUs and FAQ*/ 
- #footer1{
-   text-align:right;
-   margin-right:6%;
-   padding-top:6%;
- }
- /* --------------------------------------------------------------------------MAP */
+ .ui-tabs-vertical .ui-tabs-nav{
+   padding: .0em .1em .0em .0em; 
+   float: left; 
+   width: 40px;
+   background-color:none;
+  }
+ .ui-tabs-vertical .ui-tabs-nav li{
+   clear: left; 
+   width: 100%;
+   border-bottom-width: 1px !important; 
+   border-right-width: 0 !important;
+   margin: 0 -1px .2em 0;
+  }
+ .ui-tabs-vertical .ui-tabs-nav li a{
+   display:block;
+   
+  }
+ .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active{
+   padding-bottom: 0; 
+   padding-right: .1em; 
+   border-right-width: 1px; 
+   border-right-width: 1px;  
+  }
+ .ui-tabs-vertical .ui-tabs-panel{
+   padding: 1em; 
+   float: right; 
+   width: 40em;
+  }
+  
+  #tabsHistory, #tabs{
+    width:auto;
+    height:auto;
+    -moz-box-shadow: 0 3px 7px 2px  #c1d5df;
+    -webkit-box-shadow: 0 3px 7px 2px  #c1d5df;
+    box-shadow: 0 1px 4px 3px  #c1d5df;
+    border-radius:1px;
+    -moz-border-radius:2px;
+}
+/* --------------------------------------------------------------------------MAP */
  
 *[id^='map']{ 
    height: 600px;
@@ -529,3 +579,82 @@
    border-radius:5px;
    -moz-border-radius:15px;
 }
+/*================================================================================================================*/
+ #footerAccount{
+   text-align:right;
+   height:20px;
+   padding-top:20px; 
+   padding-bottom:5px; 
+   width:auto;
+  
+ }  
+.container {
+  margin-left:auto;
+  margin-right:auto;
+  width:1000px;
+  background-color:yellow;
+}
+
+  .login{
+    margin-right:100px;
+    margin-left:50px;
+   }
+  .login, .register{ 
+     color:#505050;
+     padding: 10px 20px 20px;
+     width: 250px;
+     float:left;
+     background:#F5F5F5;
+     -moz-box-shadow: 0 5px 10px 3px #6497B0;
+     -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+     box-shadow: 0 5px 10px 3px #6497B0;
+     border-radius:5px;
+     -moz-border-radius:15px;
+  
+  /* holds the value of the field that is not active, the text is grey*/
+  &:before {
+     content: '';
+     position: absolute;
+     top: -8px; right: -8px; bottom: -8px; left: -8px;
+     z-index: -1;
+     background: rgba(black, .08);
+     border-radius: 4px;
+  }
+
+  p.submit { text-align: right; }
+  }
+
+/* the password and username text before in unactive state*/
+:-moz-placeholder {
+  color: #c9c9c9 !important;
+  font-size: 13px;
+}
+
+input[type=text], input[type=password] {
+  margin: 5px;
+  padding: 0 10px;
+  width: 200px;
+  height: 34px;
+  color: #404040;
+  background: white;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius: 2px;
+  outline: 5px solid #eff4f7;
+  -moz-outline-radius: 3px; 
+
+  &:focus {
+    border-color: #7dc9e2;
+    outline-color: #dceefc;   
+  }
+}
+
+.lt-ie9 {
+  input[type=text], input[type=password] { line-height: 34px; }
+}
+
+ #registerText, #loginTEXT{
+    text-align:center;
+    font-size:25px;
+    color:#505050;
+ }
