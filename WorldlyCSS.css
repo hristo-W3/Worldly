@@ -139,13 +139,6 @@
  
 /* ----------------------------------------------------------------- HOME PAGE CSS--------- */
  
-/*  #linkRegLog{
-    text-align:left;
-    height:5px;   
-    width:1100px;
-   
-  }
-*/ 
   /*div for the text for questions */
   *[id^='actualQuestion']{
     text-align:center;
@@ -175,16 +168,11 @@
   /* the button "ASK!" */
   #askButton, #loginButton{
     width:110px;
-    height:30px;
-    border-radius: 6px;
-    
+    height:30px;    
   }
+  
   #askButton:hover, #loginButton:hover{
     background-color:#66CCFF;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 6px;
   }
 
  /* div for the answer buttons */
@@ -202,16 +190,6 @@
     height:15px;
     width:170px;
   }
-
-  /* the tabs for questions 
-  #tabs{
-    background-color:#F5F5F5;
-    height:auto;
-    width:auto;
-    margin-left:auto;
-    margin-right:auto;
-    border:none;
-  }*/
 
   /* every tab consists of separate div formated as follows*/
   #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5{
@@ -234,117 +212,58 @@
   }
 
   /* next bits are for the different answer buttons */
-  #answer1{
+  #answer1, #answer2, #answer3, #answer4, #answer5, #answer6{
     border-style:solid;
-    border-width:3px;
-    border-color:#FF6666;
-    background-color:none;
-   /* background:#FF6666;*/
+    border-width:3px;   
+    background-color:white;
     width:150px;
     height:40px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
     border-radius: 8px;
   }
-/*  #answer1:hover{
+  #answer1{
+    border-color:#FF6666;
+  }
+  #answer1:hover{
     background:#FF9966;
   }
-*/
+
   #answer2{
-    background-color:none;
-    border-style:solid;
-    border-width:3px;
-    border-color:#00FF00;
-    /*background:#66FF66;*/
-    width:150px;
-    height:40px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 8px;
+    border-color:#00FF00;   
   }
- /* #answer2:hover{
+  #answer2:hover{
   background:#99FF99;
   }
-*/
+
   #answer3{
-    background-color:none;
-    border-style:solid;
-    border-width:3px;
     border-color:#FFFF00;
-    /*background:#FFFF66; */
-    width:150px;
-    height:40px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 8px;
   } 
- /* #answer3:hover{
+  #answer3:hover{
     background:#FFFF99;
   }
-*/
+
   #answer4{
-    background-color:none;
-    border-style:solid;
-    border-width:3px;
     border-color:#FF00CC;
-    /*background:#FF99CC;*/
-    width:150px;
-    height:40px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 8px;
   }
-  /*#answer4:hover{
-  background:#FFCCFF;
+  #answer4:hover{
+  background:#FF66FF;
   }
-*/
+
   #answer5{
-    background-color:none;
-    border-style:solid;
-    border-width:3px;
     border-color:#00CCFF;
-    /*background:#99FFFF;*/
-    width:150px;
-    height:40px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 8px;
   } 
- /* #answer5:hover{
-    background:#CCFFFF;
+  #answer5:hover{
+    background:#99FFFF;
   }  
-*/
+
   #answer6{
-    background-color:none;
-    border-style:solid;
-    border-width:3px;
     border-color:#9966CC;
-   /* background:#CC99CC; */
-    width:150px;
-    height:40px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 8px;
   }
- /* #answer6:hover{
+  #answer6:hover{
     background:#CC99FF;
   }
-*/
   #questionText{
     margin-left:auto;
     margin-right:auto;
-  }
-
-  /* the text for questions */
-  #actualQuestion{
-    text-align:center;
-    font-size:30px;
   }
 
 /* ------------------------------------------------------ACCOUNT PAGE CSS --- LORA */
@@ -357,38 +276,12 @@
     width:1000px;  
   }
 
-
-  /* the area for register information, div 
-  #register{
-    -moz-box-shadow: 0 5px 10px 3px #B0B0B0;
-    -webkit-box-shadow: 0 5px 10px 3px #B0B0B0;
-    box-shadow: 0 5px 10px 3px #6497B0;
-    border-radius:-4px;
-    -moz-border-radius:15px;
-  }
-
-  #separator{
-    background-color:#66CCFF;
-    height:30%;
-    width:100%;
-  }*/
   /* the area for log in details, div */
   #login{
       padding-bottom:10%;
   }
- /* Already have an account? */
- #text{
-   text-align:left;
-   margin-left:4%;
-   margin-right:auto;
-   padding-top:7%;
-   font-size:17px;
-   font-family:Arial,serif;;
-   color:#505050; 
-   width: 50%;
-  }
 
-/* text that is heading for your details section */
+ /* text that is heading for your details section */
  #yourAccountHeading{
    text-align:center;
    padding-top:7%;
@@ -438,30 +331,9 @@
     width: 125px;
     height: 25px;
 }
- /*div that contains login form*/
-/* #divForm{
-    width:260px;
-    height:150px;
-    margin-left:auto;
-    margin-top:2%;
-    color:none;
-    margin-left:auto;
-    margin-right:auto;
-    font-family:Arial, serif;
- }*/
- /* div that contains registration form*/
- /*#divForm2{
-    width:260px;
-    height:300px;
-    margin-left:auto;
-    margin-top:2%;
-    color:#505050;
-    margin-right:auto;
-    font-family:Arial,serif;
- }
-*/
+
  /* the footer */
-#footer{
+ #footer{
     text-align:right;
     height:10px;
     padding-top:10px; 
@@ -477,6 +349,7 @@
     
  }
 /*------------------------------------------------------------QUESTION PAGE----------------*/
+ /*div that holds the title of the page*/
  #addNewQuestion{
     width:auto;
     height:auto;
@@ -485,22 +358,73 @@
     padding-top:5px;
  }
  
+ /* text for the title of QUESTION page */
  #textTitleForAddNew{
     text-align:center;
     font-size:30px;
     color:#505050;
  }
- #formAddQuestion{
-    width:260px;
-    height:300px;
+ /* holds the new question and answers in QUESTION page*/
+ #divAddQuestion{
+    width:400px;
+    height:auto;
     padding-top:10px;
     margin-left:auto;
-    margin-right:auto;  
-    
+    margin-right:auto;    
+ }
+
+ /* div for the question only, isn't in table, because the counter doesn't work */
+ #divUserQuestion{
+    white-space: nowrap;
+ }
+ 
+ /*the textfield where the user enter the question*/
+ #userQuestion{
+    width:300px;
+    height:35px;
+    border-radius: 8px;
+ }
+ 
+ /* the button Add Answer */
+ #addAnswerButton{
+
+ }
+
+ /* the button Submit Question */
+ #userSubmitNewQuestion{
+     margin-left:130px;
+     margin-right:110px;
+     margin-top:20px;
+     width:110px;
+     height:30px;
+ }
+ 
+ /* div that holds the table for voting and previewing questions*/
+ #tableQuestionsVote{
+     margin-left:auto;
+     margin-right:auto;
+     margin-top:50px;
+     width:auto; 
+ }
+ 
+ /* the table for vote and preview questions*/
+ #questionsTable{
+     border: 1px solid;
+     border-color:#505050; 
+     border-radius:8px;
+     margin-left:auto;
+     margin-right:auto;
+ }
+ #addAnswerTable{
+     width:300px;
+ }
+ 
+ #question1{
+     width:100px;
  }
 
 /* ----------------------------------------------------------HISTORY PAGE CSS ------ PEDRO */
-
+ /*div that holds the droplists for from and type of questions*/
  #FromAndType{
   margin-left:auto;
   margin-right:auto;
@@ -509,6 +433,7 @@
   padding-top:7px;
   padding-bottom:7px;
  }
+ 
  /* From */
  #from{
    float:left;
@@ -533,7 +458,8 @@
    margin-left:auto;
    margin-right:auto;
   }
-/* follows code for the tabs on history page */
+
+ /* follows code for the tabs on history page */
  .ui-tabs-vertical{
    width: 55em;
    
@@ -590,14 +516,6 @@
    -moz-border-radius:15px;
 }
 /*================================================================================================================*/
- #footerAccount{
-   text-align:right;
-   height:20px;
-   padding-top:20px; 
-   padding-bottom:5px; 
-   width:auto;
-  
- }  
 .container {
   margin-left:auto;
   margin-right:auto;
