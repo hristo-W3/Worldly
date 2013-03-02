@@ -268,6 +268,7 @@
 
 /* ------------------------------------------------------ACCOUNT PAGE CSS --- LORA */
   
+  
   #freeSpace{
     background-color:none;
     margin-left:auto;
@@ -275,6 +276,94 @@
     height:auto;
     width:1000px;  
   }
+  .container {
+   margin-left:auto;
+   margin-right:auto;
+   width:1000px;
+   background-color:yellow;
+ }
+
+ .login{  
+   margin-left:30px;
+ }
+ 
+ /* login and registration forms*/
+ .login, .register{ 
+   margin-right:50px;
+   color:#505050;
+   padding: 10px 20px 20px;
+   width: 250px;
+   float:left;
+   background:#F5F5F5;
+   -moz-box-shadow: 0 5px 10px 3px #6497B0;
+   -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+   box-shadow: 0 5px 10px 3px #6497B0;
+   border-radius:5px;
+   -moz-border-radius:15px;
+ }
+
+ .accountDetailsDiv{
+   padding: 10px 20px 20px;
+   background-color:#F5F5F5;
+   -moz-box-shadow: 0 5px 10px 3px #6497B0;
+   -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+   box-shadow: 0 5px 10px 3px #6497B0;
+   border-radius:5px;
+   -moz-border-radius:15px;
+   width:500px; 
+   margin-left:auto;
+   margin-right:auto;
+ }
+ 
+ #detailsText{ 
+   text-align:center;
+   font-size:30px;
+   color:#505050;
+ }
+
+ #userDetails{
+ 
+   width:400px;
+   margin-left:auto;
+   margin-right:auto;
+ }
+ p.submit { text-align: right; }
+ }
+
+ /* the password and username text before in unactive state*/
+ :-moz-placeholder {
+   color: #c9c9c9 !important;
+   font-size: 13px;
+ }
+
+ input[type=text], input[type=password] {
+   margin: 5px;
+   padding: 0 10px;
+   width: 200px;
+   height: 34px;
+   color: #404040;
+   background: white;
+   border: 1px solid;
+   border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+   border-radius: 2px;
+   outline: 5px solid #eff4f7;
+   -moz-outline-radius: 3px;  
+
+   &:focus {
+     border-color: #7dc9e2;
+     outline-color: #dceefc;   
+  }
+ }
+
+ .lt-ie9 {
+   input[type=text], input[type=password] { line-height: 34px; }
+ }
+
+ #registerText, #loginTEXT{
+   text-align:center;
+   font-size:25px;
+   color:#505050;
+ }
 
   /* the area for log in details, div */
   #login{
@@ -332,6 +421,10 @@
     height: 25px;
 }
 
+ a:link {color:#505050;}      /* unvisited link */
+ a:visited {color:#505050;}  /* visited link */
+ a:hover {color:white;}  /* mouse over link */
+ 
  /* the footer */
  #footer{
     text-align:right;
@@ -345,8 +438,12 @@
     background-color:#66CCFF;
  }
  #formLog, #formReg{
-    background-color:#F5F5F5;
-    
+    background-color:#F5F5F5;   
+ }
+
+  #detailsText{
+    font-size:26px;
+    text-align:center;
  }
 /*------------------------------------------------------------QUESTION PAGE----------------*/
  /*div that holds the title of the page*/
@@ -516,74 +613,3 @@
    -moz-border-radius:15px;
 }
 /*================================================================================================================*/
-.container {
-  margin-left:auto;
-  margin-right:auto;
-  width:1000px;
-  background-color:yellow;
-}
-
-  .login{  
-     margin-left:30px;
-   }
-  /* login and registration forms*/
-  .login, .register{ 
-     margin-right:50px;
-     color:#505050;
-     padding: 10px 20px 20px;
-     width: 250px;
-     float:left;
-     background:#F5F5F5;
-     -moz-box-shadow: 0 5px 10px 3px #6497B0;
-     -webkit-box-shadow: 0 5px 10px 3px #6497B0;
-     box-shadow: 0 5px 10px 3px #6497B0;
-     border-radius:5px;
-     -moz-border-radius:15px;
-  
-  /* holds the value of the field that is not active, the text is grey*/
-  &:before {
-     content: '';
-     position: absolute;
-     top: -8px; right: -8px; bottom: -8px; left: -8px;
-     z-index: -1;
-     background: rgba(black, .08);
-     border-radius: 4px;
-  }
-
-  p.submit { text-align: right; }
-  }
-
-/* the password and username text before in unactive state*/
-:-moz-placeholder {
-  color: #c9c9c9 !important;
-  font-size: 13px;
-}
-
-input[type=text], input[type=password] {
-  margin: 5px;
-  padding: 0 10px;
-  width: 200px;
-  height: 34px;
-  color: #404040;
-  background: white;
-  border: 1px solid;
-  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-  border-radius: 2px;
-  outline: 5px solid #eff4f7;
-  -moz-outline-radius: 3px; 
-
-  &:focus {
-    border-color: #7dc9e2;
-    outline-color: #dceefc;   
-  }
-}
-
-.lt-ie9 {
-  input[type=text], input[type=password] { line-height: 34px; }
-}
-
- #registerText, #loginTEXT{
-    text-align:center;
-    font-size:25px;
-    color:#505050;
- }
