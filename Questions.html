@@ -1,43 +1,146 @@
 <!DOCTYPE html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Worldly: You Ask It, We Map It</title>
 
 <head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title alt="WorldlyTitle">Worldly: You Ask It, We Map It</title>
 <link rel="stylesheet" type="text/css" href="WorldlyCSS.css">
+<meta charset="utf-8" />
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+$(function() {
+$( "#accordion" ).accordion({
+collapsible: true
+});
+});
+</script>
+<style>
+*[id^='preview']{
+    width:600px;
+}
+*[id^='number']{
+    width:630px;
+}
+#holdVoteTabs{
+   width:700px;
+   margin-left:auto;
+   margin-right:auto;
+   margin-top:10px;
+   padding-bottom:40px;
+}
+#holdVoteTabs{
+  
+}
+</style>
+
+<script>
+   var count = 3;
+   function addRow(tableID) {
+       if(count < 7){
+            var table = document.getElementById(tableID);
+ 
+            var rowCount = table.rows.length;
+
+            var row = table.insertRow(rowCount);
+            var cell1 = row.insertCell(0);
+            var element1 = document.createElement("label");
+            element1.type = "label";
+            element1.innerHTML="Answer";
+            cell1.appendChild(element1);
+ 
+            var cell2 = row.insertCell(1);
+            cell2.innerHTML = rowCount + 1;
+ 
+            var cell3 = row.insertCell(2);
+            var element2 = document.createElement("input");
+            element2.type = "text";
+            element2.id = "answer" + count;
+            cell3.appendChild(element2);
+            count++;
+       } 
+       else
+            window.alert ("The maximum number of answers is 6!");
+   }
+ 
+    </script>
+</head>
 
 <body>
 
-<ul id="menu">
-  <div id="contents1">
-    <li><a href="#" class="logo"><span></span></a></li>
-    <li><a href="Home.html" class="home"><span></span></a></li>
-    <li><a href="#" class="questionsActive"><span></span></a></li>
-    <li><a href="History.html" class="history"><span></span></a></li>
-    <li><a href="" class="restOfBar"></a></li>
-    <li><a href="Account.html" class="account"><span></span></a></li>
-  </div>
+  <ul id="menu" alt="basicMenuBar">  
+  <div id="contents1" alt="menuContents">
+    <li><a href="#" class="logo" alt="logo"><span></span></a></li>  
+    <li><a href="Home.html" class="home" alt=""><span></span></a></li>    	
+    <li><a href="#" class="questionsActive" alt="questionsMenu"><span></span></a></li>	   	
+    <li><a href="History.html" class="history" alt="hostoryMenu"><span></span></a></li>	
+    <li><a href="" class="restOfBar" alt="freeBarSpace"></a></li>
+    <li><a href="Account.html" class="account" alt="accountMenu"><span></span></a></li>
+  
+    <div class="loginLink" alt="linkToLoginOrRegister"><a href="">Logout</a></div>
+
+  </div>   
   </ul>
 
-  <div id="whiteSpace">
+  <div id="whiteSpace" alt="workingArea">
 
-  <div id="divForm">
-  <form id="form" action="">
+    <div id="addNewQuestion" alt="titleOfAddQuestionPage"><p id="textTitleForAddNew">Ask Your Question</p></div>
 
+    <div id="divAddQuestion" alt="formToAddNewQuestion">
+    	<div id="divUserQuestion">Question:<input id="userQuestion" type="text" /></div>    	
 
-  Question: <input id="question" type="text" name="question"></br>
-  Answer 1: <input id="answer1" type="text" name="answer1"></br>
-  Answer 2: <input id="answer2" type="text" name="answer2"></br>
-  <button type="button">Add Answer</button></br>
- <!-- </br>
-  </br>
-  </br>
-  </br> -->
-  <input type="submit" value="Submit"/>
-  </form>
+	<table id="addAnswerTable" width="auto">
+        <tr>
+            <td>Answer</td>
+            <td> 1 </td>
+            <td><input id="answer1" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Answer</td>
+            <td> 2 </td>
+            <td><input id="answer2" type="text" /></td>
+        </tr>
+    	</table>
 
+  	<input id="addAnswerButton" type="button" value="Add Answer" onclick="addRow('addAnswerTable')" /><br>
+        <input id="userSubmitNewQuestion" type="button" value="Submit" onclick="" />
+    </div>
+<div id="DivVoteForQuestion"><p>Vote for question</p></div>
+<div id="holdVoteTabs">
+<div id="accordion">
+<div id="number1">What OS do you use?</div>
+<div id="preview1"><div>Answers:
+			<ul>
+  			<li>Linux</li>
+  			<li>Windows</li>
+  			<li>Mac</li>
+			</ul></div>
+<div><input type=button value="vote"/>
+<input type=button value="FB" /></div>
 </div>
+<div id="number2">What OS do you use?</div>
+<div id="preview2">ertw</div>
 </div>
+   <!-- <div id="tableQuestionsVote">
+       <table id="questionsTable" width="auto" border="1">
+        <tr>
+            <td>1</td>
+            <td>VOTE</td>
+            <td><label id="question1" type="label" />Some question here</td>
+	    <td><input type="button" value="See More"/> </td>
+        </tr>
+    	</table>
+    </div>-->
+
+  <input type="button" value="More Questions"/>
+  </div></div>
+ 
+   <div id="footer" alt="footer">
+   <a href="aboutUs.html">AboutUs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="fag.html">FAQ</a>
+   </div>
+
 </body>
 
 </html>
