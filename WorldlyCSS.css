@@ -433,6 +433,7 @@
     text-align:center;
  }
 /*------------------------------------------------------------QUESTION PAGE----------------*/
+ /*------------------------------------------------------------QUESTION PAGE----------------*/
  /*div that holds the title of the page*/
  #addNewQuestion{
     width:auto;
@@ -441,13 +442,14 @@
     margin-right:auto;
     padding-top:5px;
  }
- 
+
  /* text for the title of QUESTION page */
  #textTitleForAddNew{
     text-align:center;
     font-size:30px;
     color:#505050;
  }
+ 
  /* holds the new question and answers in QUESTION page*/
  #divAddQuestion{
     width:400px;
@@ -507,6 +509,24 @@
      width:100px;
  }
 
+ /* the text "vote for question" */
+ #DivVoteForQuestion{
+     width:300px;
+     margin-left:auto;
+     margin-right:auto;
+     padding-top:5px;
+     margin-top:40px;
+     font-size:25px;
+ }
+ 
+ #moreQuestionsButton{
+     width:100px;
+     align:right;
+ }
+
+ *[id^='preview']{
+     background-color:white;
+ } 
 /* ----------------------------------------------------------HISTORY PAGE CSS ------ PEDRO */
  /*div that holds the droplists for from and type of questions*/
  #FromAndType{
