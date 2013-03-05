@@ -268,28 +268,15 @@
 
 /* ------------------------------------------------------ACCOUNT PAGE CSS --- LORA */
   
-  
-  #freeSpace{
-    background-color:none;
-    margin-left:auto;
-    margin-right:auto;
-    height:auto;
-    width:1000px;  
-  }
   .container {
    margin-left:auto;
    margin-right:auto;
    width:1000px;
-   background-color:yellow;
- }
-
- .login{  
-   margin-left:30px;
  }
  
  /* login and registration forms*/
  .login, .register{ 
-   margin-right:50px;
+   margin-right:25px;
    color:#505050;
    padding: 10px 20px 20px;
    width: 250px;
