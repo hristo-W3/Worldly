@@ -36,6 +36,33 @@
 
 </script>
 
+
+<style type="text/css">
+#map
+{
+  height: 485px;
+  width: 375px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.info {
+  padding: 3px 4px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+.info h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
+
+</style>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+ <!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+ <![endif]-->
 </head>
 
 <body>
@@ -50,8 +77,6 @@
     <li><a href="#" class="accountActive" alt="accountMenu"><span></span></a></li>
   </div>
   </ul>
-
-    <div id="freeSpace" alt="workingArea">
 
  <div class="container">
     <div class="login">
@@ -98,8 +123,107 @@
         <p><input type="submit" name="commit" value="Register" id="loginButton"></p>
       </form>
     </div>
+    
+    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+ <script src="uk-boundaries.js"></script>
+ 
+    <div id="map"></div>
+
+    <script type="text/javascript">
+    var map = L.map('map').setView([55.500, -2.500], 5);
+
+    var key = 'e3989c63a20c4e83aa5d3644bc050b27';
+    var tiles = 'http://{s}.tile.cloudmade.com/'+key+'/22677/256/{z}/{x}/{y}.png';
+    var attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
+
+    L.tileLayer(tiles, {
+                attribution: attr
+    }).addTo(map);
+
+    function getColour(name) {
+        return name == 'Wales'               ? '#009900' :
+               name == 'Isle of Man'         ? '#FF9900' :
+               name == 'Southern England'    ? '#FF0000' :
+			   name == 'Midlands'            ? '#FF3300' :
+			   name == 'Northern England'    ? '#FF6600' :
+			   name == 'Scotland'            ? '#0033FF' :
+			   name == 'Northern Ireland'    ? '#9900CC' :
+			   name == 'Republic of Ireland' ? '#00FF33' :
+                                               'white';
+    }
+
+    function style(feature) {
+	    return {
+	        fillColor: getColour(feature.properties.name),
+	        weight: 2,
+	        opacity: 1,
+	        color: 'white',
+	        dashArray: '3',
+	        fillOpacity: 0.7
+	    };
+    }
+
+    function highlightFeature(e) {
+	    var layer = e.target;
+
+	    layer.setStyle({
+	        weight: 5,
+	        color: '#666',
+	        dashArray: '',
+	        fillOpacity: 0.7
+	    });
+
+	    if (!L.Browser.ie && !L.Browser.opera) {
+	        layer.bringToFront();
+	    }
+
+	    info.update(layer.feature.properties);
+    }
+
+    var geojson;
+
+    function resetHighlight(e) {
+	    geojsonuk.resetStyle(e.target);
+	    info.update();
+    }
+
+    function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+	}
+	
+	geojsonuk = L.geoJson(ukBoundaries, {
+			style: style,
+			onEachFeature: onEachFeature
+	}).addTo(map);
+
+
+    var info = L.control();
+
+	info.onAdd = function (map) {
+	    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+	    this.update();
+	    return this._div;
+	};
+
+	// method that we will use to update the control based on feature properties passed
+	info.update = function (props) {
+	    this._div.innerHTML = '<h4>World Region Map</h4>' +  (props ?
+	        '<b>' + props.name + '</b><br />'
+	        : 'Hover over a region');
+	};
+
+    info.addTo(map);
+
+    </script>
   </div>
- </div>
  
 </body>
 
