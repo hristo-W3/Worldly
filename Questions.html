@@ -35,11 +35,10 @@ collapsible: true
   
 }
 </style>
-
 <script>
-   var count = 3;
+   var count = 2;
    function addRow(tableID) {
-       if(count < 7){
+       if(count < 6){
             var table = document.getElementById(tableID);
  
             var rowCount = table.rows.length;
@@ -54,17 +53,35 @@ collapsible: true
             var cell2 = row.insertCell(1);
             cell2.innerHTML = rowCount + 1;
  
+	    count++;
             var cell3 = row.insertCell(2);
             var element2 = document.createElement("input");
             element2.type = "text";
             element2.id = "answer" + count;
             cell3.appendChild(element2);
-            count++;
+           
+            alert(element2.id);
        } 
        else
-            window.alert ("The maximum number of answers is 6!");
+            window.alert ("Your question must not have more than 6 answers!");
    }
- 
+
+   function deleteRow(tableID) { 
+       try {
+	    if (count > 2){
+                  var table = document.getElementById(tableID);
+		  var rowCount = table.rows.length;
+                  	  
+		  document.getElementById(tableID).deleteRow(rowCount - 1);
+		  count--;
+            }
+	    else
+		  alert("Your question must have at least 2 answers!");
+	}
+        catch(e) {
+            alert(e);
+        }
+   }   
     </script>
 </head>
 
@@ -104,7 +121,8 @@ collapsible: true
         </tr>
     	</table>
 
-  	<input id="addAnswerButton" type="button" value="Add Answer" onclick="addRow('addAnswerTable')" /><br>
+  	<input id="addAnswerButton" type="button" value="Add Answer" onclick="addRow('addAnswerTable')" />
+  	<input id="addAnswerButton" type="button" value="Remove Answer" onclick="deleteRow('addAnswerTable')" /><br>
         <input id="userSubmitNewQuestion" type="button" value="Submit" onclick="" />
     </div>
 <div id="DivVoteForQuestion"><p>Vote for question</p></div>
