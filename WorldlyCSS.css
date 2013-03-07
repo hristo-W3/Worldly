@@ -112,8 +112,8 @@
   width:1150px;
   }
 
-  /*The white space for the website content*/
-  #whiteSpace {
+ /*The white space for the website content*/
+  *[id^='whiteSpace']{
     -moz-box-shadow: 0 5px 10px 3px #6497B0;
     -webkit-box-shadow: 0 5px 10px 3px #6497B0;
     box-shadow: 0 5px 10px 3px #6497B0;
@@ -122,11 +122,11 @@
     background-color: #F5F5F5;
     margin-left:auto;
     margin-right:auto;
+    margin-bottom: 15px;
     height:auto;
     width:1000px;  
-    padding-bottom:none;
+ 
   }
-
   /*The contents container for the menu elements - width should be set to
     same as the white space above*/
   #contents1 {
@@ -433,7 +433,9 @@
     text-align:center;
  }
 /*------------------------------------------------------------QUESTION PAGE----------------*/
- /*------------------------------------------------------------QUESTION PAGE----------------*/
+#whiteSpace1{
+   padding-bottom:20px;
+ }
  /*div that holds the title of the page*/
  #addNewQuestion{
     width:auto;
