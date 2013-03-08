@@ -5,6 +5,8 @@
 <title alt="WorldlyTitle">Worldly: You Ask It, We Map It</title>
 <link rel="stylesheet" type="text/css" href="WorldlyCSS.css">
 <link rel="stylesheet" type="text/css" href="VoteOnQuestionPageCSS.css">
+<link rel="icon" href="globe.ico" type="image/x-icon">
+<link rel="shortcut icon" href="globe.ico" type="image/x-icon">
 <meta charset="utf-8" />
 
 <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
