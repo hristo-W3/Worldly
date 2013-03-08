@@ -4,9 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title alt="WorldlyTitle">Worldly: You Ask It, We Map It</title>
 <link rel="stylesheet" type="text/css" href="WorldlyCSS.css">
+<link rel="stylesheet" type="text/css" href="VoteOnQuestionPageCSS.css">
 <meta charset="utf-8" />
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
@@ -35,6 +36,7 @@ collapsible: true
   
 }
 </style>
+-->
 <script>
    var count = 2;
    function addRow(tableID) {
@@ -60,29 +62,38 @@ collapsible: true
             element2.id = "answer" + count;
             cell3.appendChild(element2);
            
-         
+            alert(element2.id);
        } 
        else
             window.alert ("Your question must not have more than 6 answers!");
    }
 
-   function deleteRow(tableID) { 
-       try {
-	    if (count > 2){
+   function deleteRow(tableID) {
+            
+             try {
+		if (count > 2){
                   var table = document.getElementById(tableID);
 		  var rowCount = table.rows.length;
-                  	  
+                	  
 		  document.getElementById(tableID).deleteRow(rowCount - 1);
 		  count--;
-            }
-	    else
+            	}
+		else
 		  alert("Your question must have at least 2 answers!");
-	}
-        catch(e) {
-            alert(e);
-        }
-   }   
-    </script>
+	      }
+            catch(e) {
+                alert(e);
+            }
+   }
+           </script>
+
+<script><!--
+var Clicks = 0 ;
+function AddClick(){
+Clicks = Clicks + 1;
+document.getElementById('CountedClicks').innerHTML = Clicks ;
+}
+// --></script>
 </head>
 
 <body>
@@ -122,38 +133,37 @@ collapsible: true
     	</table>
 
   	<input id="addAnswerButton" type="button" value="Add Answer" onclick="addRow('addAnswerTable')" />
-  	<input id="addAnswerButton" type="button" value="Remove Answer" onclick="deleteRow('addAnswerTable')" /><br>
+	<input id="deleteAnswerButton" type="button" value="Remove Answer" onclick="deleteRow('addAnswerTable')" /><br>
         <input id="userSubmitNewQuestion" type="button" value="Submit" onclick="" />
     </div>
+</div>
+
+<div id=whiteSpace1>
 <div id="DivVoteForQuestion"><p id="textTitleForAddNew">Vote for question</p></div>
-<div id="holdVoteTabs">
-<div id="accordion">
-<div id="number1">What OS do you use?</div>
-<div id="preview1"><div>Answers:
-			<ul>
-  			<li>Linux</li>
-  			<li>Windows</li>
-  			<li>Mac</li>
-			</ul></div>
-<div><input type=button value="vote"/>
-<input type=button value="FB" /></div>
-</div>
-<div id="number2">What OS do you use?</div>
-<div id="preview2">ertw</div>
-</div>
-   <!-- <div id="tableQuestionsVote">
-       <table id="questionsTable" width="auto" border="1">
+<div id="voteAndMoreQuestions">
+<div id="tableQuestionsVote">
+   
+       <table BORDER=1 CELLPADDING=3 CELLSPACING=1 
+    RULES=ROWS id="questionsTable" width="auto" >
         <tr>
-            <td>1</td>
-            <td>VOTE</td>
-            <td><label id="question1" type="label" />Some question here</td>
-	    <td><input type="button" value="See More"/> </td>
+            <td id="voteResult1"><span id="CountedClicks">0 </span></td>
+            <td id="voteButtonCell1"><button id="voteButton" style="background-color: Light blue" onclick="AddClick()">Vote</button></td>
+            <td id="questionCell1"><label id="question1" type="label" />Some question here</td>
+	    <td id="seeMoreCell1"><input id="buttonSeeMore" type=button onClick="location.href='Home.html'" value='>'></td>
+        </tr>
+	<tr>
+            <td id="voteResult2"><span id="CountedClicks">0 </span></td>
+            <td id="voteButtonCell2"><button id="voteButton" style="background-color: Light blue" onclick="AddClick()">Vote</button></td>
+            <td id="questionCell2"><label id="question1" type="label" />Somenhgfdsdfghjkjhgfdsdfghjkjhgfdsfghjkjhgfdsdfghjkjhgfd question here</td>
+	    <td id="seeMoreCell2"><input id="buttonSeeMore" type=button onClick="location.href='Home.html'" value='>'></td>
         </tr>
     	</table>
-    </div>-->
+</div>
+  <input id="moreQuestions" type="button" value="More Questions"/>
+  </div>
+   
 
-  <input type="button" value="More Questions"/>
-  </div></div>
+  </div>
  
    <div id="footer" alt="footer">
    <a href="aboutUs.html">AboutUs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="fag.html">FAQ</a>
