@@ -464,6 +464,8 @@
  /* div for the question only, isn't in table, because the counter doesn't work */
  #divUserQuestion{
     white-space: nowrap;
+    font-size:23px;
+    color:#505050;
  }
  
  /*the textfield where the user enter the question*/
@@ -474,8 +476,7 @@
  }
  
  /* the button Add Answer */
- #addAnswerButton{
-
+ #addAnswerButton, #deleteAnswerButton{
  }
 
  /* the button Submit Question */
@@ -486,49 +487,11 @@
      width:110px;
      height:30px;
  }
- 
- /* div that holds the table for voting and previewing questions*/
- #tableQuestionsVote{
-     margin-left:auto;
-     margin-right:auto;
-     margin-top:50px;
-     width:auto; 
- }
- 
- /* the table for vote and preview questions*/
- #questionsTable{
-     border: 1px solid;
-     border-color:#505050; 
-     border-radius:8px;
-     margin-left:auto;
-     margin-right:auto;
- }
+
  #addAnswerTable{
      width:300px;
+     font-size:20px;
  }
- 
- #question1{
-     width:100px;
- }
-
- /* the text "vote for question" */
- #DivVoteForQuestion{
-     width:300px;
-     margin-left:auto;
-     margin-right:auto;
-     padding-top:5px;
-     margin-top:40px;
-     font-size:25px;
- }
- 
- #moreQuestionsButton{
-     width:100px;
-     align:right;
- }
-
- *[id^='preview']{
-     background-color:white;
- } 
 /* ----------------------------------------------------------HISTORY PAGE CSS ------ PEDRO */
  /*div that holds the droplists for from and type of questions*/
  #FromAndType{
