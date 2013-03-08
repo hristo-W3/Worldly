@@ -60,7 +60,7 @@ collapsible: true
             element2.id = "answer" + count;
             cell3.appendChild(element2);
            
-            alert(element2.id);
+         
        } 
        else
             window.alert ("Your question must not have more than 6 answers!");
