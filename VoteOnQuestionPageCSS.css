@@ -1,0 +1,91 @@
+/* first cell of the row containing the current vote for the question*/
+*[id^='voteResult']{
+  min-width:30px;
+  max-width:30px;
+  text-align:center;
+}
+
+/* div that holds the table for voting and previewing questions*/
+#tableQuestionsVote{
+     margin-left:auto;
+     margin-right:auto;
+     margin-top:50px;
+     width:auto; 
+ }
+
+/* the div that holds the table for voting and previewing and the button MoreQuestions*/
+#voteAndMoreQuestions{
+     width:800px;
+     margin-left:auto;
+     margin-right:auto;
+     
+}
+ 
+/* the table for vote and preview questions*/
+#questionsTable{
+     margin-left:auto;
+     margin-right:auto;
+     border-radius:8px;
+  
+}
+
+tr{
+     boder-radius:8px;
+}
+/* VOTE button*/
+#voteButton{
+     width:100%
+}
+
+/* the cell that holds the button VOTE*/
+*[id^='voteButtonCell']{
+     max-width:45px;
+}
+
+#moreQuestions{
+     align:right;
+}
+
+/* the cell that holds actual question */
+*[id^='questionCell']{
+     padding-left:5px;
+     padding-right:3px;
+     max-width: 600px; 
+     min-width:400px;   
+     font-size:20px;
+}
+
+/* the button see more '>' */
+#buttonSeeMore{
+     width:100%;
+}
+
+/* the cell that holds the button SeeMore */
+*[id^='seeMoreCell']{
+     max-width:30px;   
+}
+
+ /* the text "vote for question" */
+ #DivVoteForQuestion{
+     width:300px;
+     margin-left:auto;
+     margin-right:auto;
+     padding-top:5px;
+     margin-top:40px;
+     font-size:25px;
+ }
+ /*
+ #moreQuestionsButton{
+     width:100px;
+     float:right;
+     
+ }*/
+
+/* next bits are used in the tab version of voting questions, ignore them if want to use table */
+ *[id^='preview']{
+     background-color:white;
+ } 
+#question1{
+     max-width:100px;
+
+ }
