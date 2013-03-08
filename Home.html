@@ -5,6 +5,8 @@
 
 <head>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<script src="uk-boundaries.js"></script>
 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="WorldlyCSS.css">
@@ -35,8 +37,6 @@ $( "#tabs" ).tabs();
   </div>  
   </ul>
     
-  <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
-    
   <div id="whiteSpace" alt="workingArea">     	
   
     <div id="questionSpace" alt="fieldToTypeQuestion">  
@@ -61,11 +61,248 @@ $( "#tabs" ).tabs();
 	  
         <div id="map1" alt="map1"></div>  
 	<script type="text/javascript">	   
-	var map = L.map('map1').setView([53.477, -2.246], 15);
-        var KEY = 'e3989c63a20c4e83aa5d3644bc050b27';
-	var TILES = 'http://{s}.tile.cloudmade.com/'+KEY+'/997/256/{z}/{x}/{y}.png';
-	var ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
-	L.tileLayer(TILES, {attribution: ATTR}).addTo(map); 
+    var questionID = 1;
+	var map1 = L.map('map1').setView([56.477, -2.246], 5);
+
+    var key = 'e3989c63a20c4e83aa5d3644bc050b27';
+    var tiles = 'http://{s}.tile.cloudmade.com/'+key+'/22677/256/{z}/{x}/{y}.png';
+    var attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
+	
+	function getColour(givenRef) 
+	{
+	  var colour = 'white';
+	  var maxAnswer = 0;
+	  var maxVotes = 0;
+	  var i;
+	  
+	  switch(givenRef)
+	  {
+	  case "wales":
+		for(i = 1; i <= 6; i++)
+	    {
+	      if(dataInput.wales[i.toString()] > maxVotes)
+	   	  {
+		    maxAnswer = i;
+			maxVotes = dataInput.wales[i.toString()];
+		  }
+		  else if(dataInput.wales[i.toString()] == maxVotes)
+		  {
+		    maxAnswer = 0;
+		  }
+        }
+		colour = getColourHex(maxAnswer);
+		break;
+      case "isleOfMan":
+		for(i = 1; i <= 6; i++)
+	    {
+	      if(dataInput.isleOfMan[i.toString()] > maxVotes)
+	   	  {
+		    maxAnswer = i;
+			maxVotes = dataInput.isleOfMan[i.toString()];
+		  }
+		  else if(dataInput.isleOfMan[i.toString()] == maxVotes)
+		  {
+		    maxAnswer = 0;
+		  }
+        }
+		colour = getColourHex(maxAnswer);
+		break;
+      case "southernEngland":
+		for(i = 1; i <= 6; i++)
+	    {
+	      if(dataInput.southernEngland[i.toString()] > maxVotes)
+	   	  {
+		    maxAnswer = i;
+			maxVotes = dataInput.southernEngland[i.toString()];
+		  }
+		  else if(dataInput.southernEngland[i.toString()] == maxVotes)
+		  {
+		    maxAnswer = 0;
+		  }
+        }
+		colour = getColourHex(maxAnswer);
+		break;
+      case "midlands":
+		for(i = 1; i <= 6; i++)
+	    {
+	      if(dataInput.midlands[i.toString()] > maxVotes)
+	   	  {
+		    maxAnswer = i;
+			maxVotes = dataInput.midlands[i.toString()];
+		  }
+		  else if(dataInput.midlands[i.toString()] == maxVotes)
+		  {
+		    maxAnswer = 0;
+		  }
+        }
+		colour = getColourHex(maxAnswer);
+		break;
+      case "northernEngland":
+		for(i = 1; i <= 6; i++)
+	    {
+	      if(dataInput.northernEngland[i.toString()] > maxVotes)
+	   	  {
+		    maxAnswer = i;
+			maxVotes = dataInput.northernEngland[i.toString()];
+		  }
+		  else if(dataInput.northernEngland[i.toString()] == maxVotes)
+		  {
+		    maxAnswer = 0;
+		  }
+        }
+		colour = getColourHex(maxAnswer);
+		break;
+	  case "scotland":
+		for(i = 1; i <= 6; i++)
+	    {
+	      if(dataInput.scotland[i.toString()] > maxVotes)
+	   	  {
+		    maxAnswer = i;
+			maxVotes = dataInput.scotland[i.toString()];
+		  }
+		  else if(dataInput.scotland[i.toString()] == maxVotes)
+		  {
+		    maxAnswer = 0;
+		  }
+        }
+		colour = getColourHex(maxAnswer);
+		break;
+      case "northernIreland":
+		for(var i = 1; i <= 6; i++)
+	    {
+	      if(dataInput.northernIreland[i.toString()] > maxVotes)
+	   	  {
+		    maxAnswer = i;
+			maxVotes = dataInput.northernIreland[i.toString()];
+		  }
+		  else if(dataInput.northernIreland[i.toString()] == maxVotes)
+		  {
+		    maxAnswer = 0;
+		  }
+        }
+		colour = getColourHex(maxAnswer);
+		break;
+      case "republicOfIreland":
+		for(i = 1; i <= 6; i++)
+	    {
+	      if(dataInput.republicOfIreland[i.toString()] > maxVotes)
+	   	  {
+		    maxAnswer = i;
+			maxVotes = dataInput.republicOfIreland[i.toString()];
+		  }
+		  else if(dataInput.republicOfIreland[i.toString()] == maxVotes)
+		  {
+		    maxAnswer = 0;
+		  }
+        }
+		colour = getColourHex(maxAnswer);
+		break;
+	  }
+	  return colour;
+    }
+	
+	function getColourHex(value)
+	{
+	  return value == 1 ? '#FF9966':
+	         value == 2 ? '#99FF99':
+			 value == 3 ? '#FFFF99':
+			 value == 4 ? '#FF66FF':
+			 value == 5 ? '#99FFFF':
+			 value == 6 ? '#CC99FF':
+			              'white';
+	}
+	
+    L.tileLayer(tiles, {
+                attribution: attr
+    }).addTo(map1);
+    
+	var dataLayer = 0;
+	
+	function createDataLayer(dataLayer, map1)
+    {    
+	  map1.removeLayer(dataLayer);
+	  $.post("pullResults.php", function(data){
+	  dataInput = data;
+	  dataLayer = L.geoJson(ukBoundaries, {
+			style: style,
+			onEachFeature: onEachFeature
+	    });
+        dataLayer.addTo(map1);
+	  });
+	}
+	
+	function style(feature) {
+		return {
+	        fillColor: getColour(feature.properties.ref),
+	        weight: 2,
+	        opacity: 1,
+	        color: 'white',
+	        dashArray: '3',
+	        fillOpacity: 0.7
+	    };
+    }
+
+    function highlightFeature(e) {
+	    var layer = e.target;
+
+	    layer.setStyle({
+	        weight: 5,
+	        color: '#666',
+	        dashArray: '',
+	        fillOpacity: 0.7
+	    });
+
+	    if (!L.Browser.ie && !L.Browser.opera) {
+	        layer.bringToFront();
+	    }
+
+	    info.update(layer.feature.properties);
+    }
+	
+    function resetHighlight(e) {
+		dataLayer.resetStyle(e.target);
+	    info.update();
+    }
+
+    function zoomToFeature(e) {
+			map1.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+	} 
+	
+	var dataInput;
+	
+    $.post("pullResults.php", { 'questionID' : questionID }, function(data){
+	  dataInput = $.parseJSON(data);
+	  dataLayer = L.geoJson(ukBoundaries, {
+			style: style,
+			onEachFeature: onEachFeature
+		});
+      dataLayer.addTo(map1);
+	});
+
+    var info = L.control();
+
+	info.onAdd = function (map1) {
+	    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+	    this.update();
+	    return this._div;
+	};
+
+	// method that we will use to update the control based on feature properties passed
+	info.update = function (props) {
+	    this._div.innerHTML = '<h4>World Region Map</h4>' +  (props ?
+	        '<b>' + props.name + '</b><br />'
+	        : 'Hover over a region');
+	}; 
+
+    info.addTo(map1);
 	</script>
 
 	<table id="buttonsTable" alt="buttonsForAnswer">  
@@ -87,11 +324,11 @@ $( "#tabs" ).tabs();
 	    
 	<div id="map2" alt="map2"></div> 
 	  <script type="text/javascript">  
-	  var map = L.map('map2').setView([53.477, -2.246], 15);
+	  var map2 = L.map('map2').setView([53.477, -2.246], 15);
           var KEY = 'e3989c63a20c4e83aa5d3644bc050b27';
     	  var TILES = 'http://{s}.tile.cloudmade.com/'+KEY+'/997/256/{z}/{x}/{y}.png';
     	  var ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
-	  L.tileLayer(TILES, {attribution: ATTR}).addTo(map);     
+	  L.tileLayer(TILES, {attribution: ATTR}).addTo(map2);     
 	  </script>
 	 
         <table id="buttonsTable" alt="buttonsForAnswer">  
