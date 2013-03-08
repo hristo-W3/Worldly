@@ -61,15 +61,21 @@ $( "#tabs" ).tabs();
 	  
         <div id="map1" alt="map1"></div>  
 	<script type="text/javascript">	   
-    var questionID = 1;
-	var map1 = L.map('map1').setView([56.477, -2.246], 5);
 
     var key = 'e3989c63a20c4e83aa5d3644bc050b27';
     var tiles = 'http://{s}.tile.cloudmade.com/'+key+'/22677/256/{z}/{x}/{y}.png';
     var attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
 	
-	function getColour(givenRef) 
+	function map(mapName, question)
 	{
+	  var dataInput;
+	  var map;
+	  var questionID = question;
+	  
+	  map = L.map(mapName).setView([56.477, -2.246], 5);
+	  
+	  function getColour(givenRef) 
+	  {
 	  var colour = 'white';
 	  var maxAnswer = 0;
 	  var maxVotes = 0;
@@ -78,18 +84,18 @@ $( "#tabs" ).tabs();
 	  switch(givenRef)
 	  {
 	  case "wales":
-		for(i = 1; i <= 6; i++)
+		  for(i = 1; i <= 6; i++)
 	    {
 	      if(dataInput.wales[i.toString()] > maxVotes)
 	   	  {
 		    maxAnswer = i;
-			maxVotes = dataInput.wales[i.toString()];
-		  }
-		  else if(dataInput.wales[i.toString()] == maxVotes)
-		  {
-		    maxAnswer = 0;
-		  }
-        }
+			  maxVotes = dataInput.wales[i.toString()];
+		    }
+		      else if(dataInput.wales[i.toString()] == maxVotes)
+		    {
+		      maxAnswer = 0;
+		    }
+      }
 		colour = getColourHex(maxAnswer);
 		break;
       case "isleOfMan":
@@ -214,20 +220,20 @@ $( "#tabs" ).tabs();
 	
     L.tileLayer(tiles, {
                 attribution: attr
-    }).addTo(map1);
+    }).addTo(map);
     
-	var dataLayer = 0;
+	var dataLayer;
 	
-	function createDataLayer(dataLayer, map1)
+	function createDataLayer()
     {    
-	  map1.removeLayer(dataLayer);
-	  $.post("pullResults.php", function(data){
-	  dataInput = data;
+	  map.removeLayer(dataLayer);
+	  $.post("pullResults.php", { 'questionID' : questionID }, function(data){
+	  dataInput = $.parseJSON(data);
 	  dataLayer = L.geoJson(ukBoundaries, {
 			style: style,
 			onEachFeature: onEachFeature
-	    });
-        dataLayer.addTo(map1);
+		});
+      dataLayer.addTo(map);
 	  });
 	}
 	
@@ -284,16 +290,17 @@ $( "#tabs" ).tabs();
 			style: style,
 			onEachFeature: onEachFeature
 		});
-      dataLayer.addTo(map1);
+      dataLayer.addTo(map);
 	});
 
     var info = L.control();
 
-	info.onAdd = function (map1) {
+	info.onAdd = function (map) {
 	    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
 	    this.update();
 	    return this._div;
 	};
+
 
 	// method that we will use to update the control based on feature properties passed
 	info.update = function (props) {
@@ -302,7 +309,10 @@ $( "#tabs" ).tabs();
 	        : 'Hover over a region');
 	}; 
 
-    info.addTo(map1);
+    info.addTo(map);
+  }
+  
+  map1 = new map('map1', 1);
 	</script>
 
 	<table id="buttonsTable" alt="buttonsForAnswer">  
@@ -320,15 +330,13 @@ $( "#tabs" ).tabs();
  
       </div> 
 
-      <div id="tabs-2" alt="tab2"><div id="actualQuestion2">jhgfdghj</div>
+      <div id="tabs-2" alt="tab2"><div id="actualQuestion2">Why am I here?</div>
 	    
 	<div id="map2" alt="map2"></div> 
 	  <script type="text/javascript">  
-	  var map2 = L.map('map2').setView([53.477, -2.246], 15);
-          var KEY = 'e3989c63a20c4e83aa5d3644bc050b27';
-    	  var TILES = 'http://{s}.tile.cloudmade.com/'+KEY+'/997/256/{z}/{x}/{y}.png';
-    	  var ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
-	  L.tileLayer(TILES, {attribution: ATTR}).addTo(map2);     
+	  
+	  map2 = new map('map2', 2);
+    
 	  </script>
 	 
         <table id="buttonsTable" alt="buttonsForAnswer">  
@@ -342,12 +350,27 @@ $( "#tabs" ).tabs();
       </div>
 	 
       <div id="tabs-3" alt="tab3"><div id="actualQuestion3">jhgfdsfgh</div>
+      <div id="map3" alt="map3"></div> 
+	  <script type="text/javascript">  
+	  
+	  map3 = new map('map3', 3);
+	  </script>
       </div>
 
       <div id="tabs-4" alt="tab4"><div id="actualQuestion4">dsgear</div>
+      <div id="map4" alt="map4"></div> 
+      <script type="text/javascript">  
+	  
+	  map4 = new map('map4', 4);
+	  </script>
       </div>
 	 
       <div id="tabs-5" alt="tab5"><div id="actualQuestion5">egrsers</div>
+      <div id="map5" alt="map5"></div> 
+      <script type="text/javascript">  
+	  
+	  map5 = new map('map5', 5);
+	  </script>
       </div>	
      </div>  
    </div>
