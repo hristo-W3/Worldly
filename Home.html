@@ -22,6 +22,7 @@
 
 var map;
 var questionMap;
+var answerSet;
 
 function question(mapNo)
 {
@@ -30,14 +31,19 @@ function question(mapNo)
     var questionID = returnValues.questionID[0];
     var question = returnValues.question;
     document.getElementById("questionTitle" + mapNo).innerHTML = question;
-    questionMap[mapNo] = new map(mapNo, questionID);
+	questionMap[mapNo] = new map(mapNo, questionID);
   });
 }
 
-function answsers(mapNo, questionID)
+function answers(mapNo, questionID)
 {
-  $.post("pullResults.php", { 'questionID' : questionID, 'dataType' : 'map' }, function(data){
-});
+  $.post("pullResults.php", { 'questionID' : questionID, dataType: "answers" }, function(answerData){
+	answers = $.parseJSON(answerData);
+	for(var answerID = 1; answerID <= 6; answerID++)
+	{
+	  document.getElementById("answer" + answerID + "question" + mapNo).value = answers[answerID];
+	}
+  });
 }
 
 
@@ -262,16 +268,17 @@ click: zoomToFeature
 
 var dataInput;
 
-$.post("pullResults.php", { 'questionID' : questionID, 'dataType' : 'map' }, function(data){
-    dataInput = $.parseJSON(data);
+$.post("pullResults.php", { 'questionID' : questionID, dataType: "map" }, function(data){
+	dataInput = $.parseJSON(data);
     dataLayer = L.geoJson(ukBoundaries, {
     style: style,
     onEachFeature: onEachFeature
   });
   dataLayer.addTo(map[mapNo]);
+  answerSet[mapNo] = new answers(mapNo, questionID);
 });
 
-    var info = L.control();
+var info = L.control();
 
 info.onAdd = function () {
 this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -333,14 +340,14 @@ Go to question:
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
 		<tr id="buttonsRows" alt="firstButtonRow">
-		<td><input id="answer1question1" type="submit" value="WINDOWS" alt="answer1"/></td>
-		<td><input id="answer2question1" type="submit" value="LINUX" alt="answer2"/></td>
-		<td><input id="answer3question1" type="submit" value="MAC" alt="answer3"/></td>
+		<td><input id="answer1question1" type="submit" value="" alt="answer1"/></td>
+		<td><input id="answer2question1" type="submit" value="" alt="answer2"/></td>
+		<td><input id="answer3question1" type="submit" value="" alt="answer3"/></td>
 		</tr>
 		<tr id="buttons" alt="secondButtonRow">
-		<td><input id="answer4question1" type="submit" value="OTHER" alt="answer4"/></td>
-		<td> <input id="answer5question1" type="submit" value="Don't use" alt="answer5"/></td>
-		<td> <input id="answer6question1" type="submit" value="I don't know" alt="answer6"/></td>
+		<td><input id="answer4question1" type="submit" value="" alt="answer4"/></td>
+		<td> <input id="answer5question1" type="submit" value="" alt="answer5"/></td>
+		<td> <input id="answer6question1" type="submit" value="" alt="answer6"/></td>
 		</tr>
 	</table>
 
@@ -353,12 +360,14 @@ Go to question:
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
 		<tr id="buttonsRows" alt="firstButtonRow">
-		<td><input id="answer1question2" type="submit" value="WINDOWS" alt="answer1"/></td>
-		<td><input id="answer2question2" type="submit" value="LINUX" alt="answer2"/></td>
-		<td><input id="answer3question2" type="submit" value="MAC" alt="answer3"/></td>
-		<td><input id="answer4question2" type="submit" value="OTHER" alt="answer4"/></td>
-		<td> <input id="answer5question2" type="submit" value="Don't use" alt="answer5"/></td>
-		<td> <input id="answer6question2" type="submit" value="I don't know" alt="answer6"/></td>
+		<td><input id="answer1question2" type="submit" value="" alt="answer1"/></td>
+		<td><input id="answer2question2" type="submit" value="" alt="answer2"/></td>
+		<td><input id="answer3question2" type="submit" value="" alt="answer3"/></td>
+		</tr>
+		<tr id="buttons" alt="secondButtonRow">
+		<td><input id="answer4question2" type="submit" value="" alt="answer4"/></td>
+		<td> <input id="answer5question2" type="submit" value="" alt="answer5"/></td>
+		<td> <input id="answer6question2" type="submit" value="" alt="answer6"/></td>
 		</tr>
 	</table>
 
@@ -371,16 +380,14 @@ Go to question:
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
 		<tr id="buttonsRows" alt="firstButtonRow">
-		<td><input id="answer1question3" type="submit" value="WINDOWS" alt="answer1"/></td>
-		<td><input id="answer2question3" type="submit" value="LINUX" alt="answer2"/></td>
+		<td><input id="answer1question3" type="submit" value="" alt="answer1"/></td>
+		<td><input id="answer2question3" type="submit" value="" alt="answer2"/></td>
+		<td><input id="answer3question3" type="submit" value="" alt="answer3"/></td>
 		</tr>
-		<tr>
-		<td><input id="answer3question3" type="submit" value="MAC" alt="answer3"/></td>
-		<td><input id="answer4question3" type="submit" value="OTHER" alt="answer4"/></td>
-		</tr>
-		<tr>		
-		<td> <input id="answer5question3" type="submit" value="Don't use" alt="answer5"/></td>
-		<td> <input id="answer6question3" type="submit" value="I don't know" alt="answer6"/></td>
+		<tr id="buttons" alt="secondButtonRow">
+		<td><input id="answer4question3" type="submit" value="" alt="answer4"/></td>
+		<td> <input id="answer5question3" type="submit" value="" alt="answer5"/></td>
+		<td> <input id="answer6question3" type="submit" value="" alt="answer6"/></td>
 		</tr>
 	</table>
 
@@ -393,14 +400,15 @@ Go to question:
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
 		<tr id="buttonsRows" alt="firstButtonRow">
-		<td><input id="answer1question4" type="submit" value="WINDOWS" alt="answer1"/></td>
-		<td><input id="answer2question4" type="submit" value="LINUX" alt="answer2"/></td>
+		<td><input id="answer1question4" type="submit" value="" alt="answer1"/></td>
+		<td><input id="answer2question4" type="submit" value="" alt="answer2"/></td>
+		<td><input id="answer3question4" type="submit" value="" alt="answer3"/></td>
 		</tr>
-		<tr>
-		<td><input id="answer3question4" type="submit" value="MAC" alt="answer3"/></td>
-		<td><input id="answer4question4" type="submit" value="OTHER" alt="answer4"/></td>
+		<tr id="buttons" alt="secondButtonRow">
+		<td><input id="answer4question4" type="submit" value="" alt="answer4"/></td>
+		<td> <input id="answer5question4" type="submit" value="" alt="answer5"/></td>
+		<td> <input id="answer6question4" type="submit" value="" alt="answer6"/></td>
 		</tr>
-		
 	</table>
 
 	<script>question4 = new question(4);</script>
@@ -412,12 +420,14 @@ Go to question:
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
 		<tr id="buttonsRows" alt="firstButtonRow">
-		<td><input id="answer1question5" type="submit" value="WINDOWS" alt="answer1"/></td>
-		<td><input id="answer2question5" type="submit" value="LINUX" alt="answer2"/></td>
-		<td><input id="answer3question5" type="submit" value="MAC" alt="answer3"/></td>
-		<td><input id="answer4question5" type="submit" value="OTHER" alt="answer4"/></td>
-		<td> <input id="answer5question5" type="submit" value="Don't use" alt="answer5"/></td>
-		
+		<td><input id="answer1question5" type="submit" value="" alt="answer1"/></td>
+		<td><input id="answer2question5" type="submit" value="" alt="answer2"/></td>
+		<td><input id="answer3question5" type="submit" value="" alt="answer3"/></td>
+		</tr>
+		<tr id="buttons" alt="secondButtonRow">
+		<td><input id="answer4question5" type="submit" value="" alt="answer4"/></td>
+		<td> <input id="answer5question5" type="submit" value="" alt="answer5"/></td>
+		<td> <input id="answer6question5" type="submit" value="" alt="answer6"/></td>
 		</tr>
 	</table>
 
