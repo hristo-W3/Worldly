@@ -20,14 +20,17 @@
 </head>
 <script type="text/javascript">
 
-    function question(mapNo)
+var map;
+var questionMap;
+
+function question(mapNo)
 {
 $.post("returnActiveQuestion.php", { 'mapNo' : mapNo }, function(data){
 var returnValues = $.parseJSON(data);
 var questionID = returnValues.questionID[0];
       var question = returnValues.question;
 document.getElementById("questionTitle" + mapNo).innerHTML = question;
-map = new map(mapNo, questionID);
+questionMap[mapNo] = new map(mapNo, questionID);
 });
 }
 
@@ -38,14 +41,13 @@ var key = 'e3989c63a20c4e83aa5d3644bc050b27';
 function map(mapNo, questionID)
 {
 var dataInput;
-var map;
 var mapName = "map" + mapNo;
 
-map = L.map(mapName).setView([56.477, -2.246], 5);
+map[mapNo] = L.map(mapName).setView([56.477, -2.246], 5);
 
 L.tileLayer(tiles, {
                 attribution: attr
-      }).addTo(map);
+      }).addTo(map[mapNo]);
 
 function getColour(givenRef)
 {
@@ -195,14 +197,14 @@ var dataLayer;
 
 function createDataLayer()
     {
-map.removeLayer(dataLayer);
+map[mapNo].removeLayer(dataLayer);
 $.post("pullResults.php", { 'questionID' : questionID }, function(data){
 dataInput = $.parseJSON(data);
 dataLayer = L.geoJson(ukBoundaries, {
 style: style,
 onEachFeature: onEachFeature
 });
-      dataLayer.addTo(map);
+      dataLayer.addTo(map[mapNo]);
 });
 }
 
@@ -240,7 +242,7 @@ info.update();
     }
 
     function zoomToFeature(e) {
-map1.fitBounds(e.target.getBounds());
+map[mapNo].fitBounds(e.target.getBounds());
 }
 
 function onEachFeature(feature, layer) {
@@ -259,12 +261,12 @@ dataLayer = L.geoJson(ukBoundaries, {
 style: style,
 onEachFeature: onEachFeature
 });
-      dataLayer.addTo(map);
+      dataLayer.addTo(map[mapNo]);
 });
 
     var info = L.control();
 
-info.onAdd = function (map) {
+info.onAdd = function () {
 this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
 this.update();
 return this._div;
@@ -278,7 +280,7 @@ this._div.innerHTML = '<h4>World Region Map</h4>' + (props ?
 : 'Hover over a region');
 };
 
-    info.addTo(map);
+    info.addTo(map[mapNo]);
 }
 
 </script>	
@@ -311,7 +313,7 @@ this._div.innerHTML = '<h4>World Region Map</h4>' + (props ?
    </div>
 
    <div id="whiteSpace" alt="workingArea">
-   <div id="questionTitle1">Why am I here?</div>
+   <div id="questionTitle1"></div>
     <div id="map1" alt="map1"></div>
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
@@ -331,7 +333,7 @@ this._div.innerHTML = '<h4>World Region Map</h4>' + (props ?
    </div>
    
    <div id="whiteSpace" alt="workingArea">
-     <div id="questionTitle2">Why am I here?</div>
+     <div id="questionTitle2"></div>
      <div id="map2" alt="map2"></div>
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
@@ -349,7 +351,7 @@ this._div.innerHTML = '<h4>World Region Map</h4>' + (props ?
    </div>
 
    <div id="whiteSpace" alt="workingArea">
-     <div id="questionTitle3">Why am I here?</div>
+     <div id="questionTitle3"></div>
      <div id="map3" alt="map3"></div>
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
@@ -371,7 +373,7 @@ this._div.innerHTML = '<h4>World Region Map</h4>' + (props ?
    </div>
 
   <div id="whiteSpace" alt="workingArea">
-     <div id="questionTitle4">Why am I here?</div>
+     <div id="questionTitle4"></div>
      <div id="map4" alt="map4"></div>
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
@@ -390,7 +392,7 @@ this._div.innerHTML = '<h4>World Region Map</h4>' + (props ?
    </div>
    
    <div id="whiteSpace" alt="workingArea">
-     <div id="questionTitle5">Why am I here?</div>
+     <div id="questionTitle5"></div>
      <div id="map5" alt="map5"></div>
 
 	<table id="buttonsTable" alt="buttonsForAnswer">
@@ -406,24 +408,7 @@ this._div.innerHTML = '<h4>World Region Map</h4>' + (props ?
 
 	<script>question5 = new question(5);</script>
    </div>
-
-  <div id="whiteSpace" alt="workingArea">
-     <div id="questionTitle6">Why am I here?</div>
-     <div id="map6" alt="map6"></div>
-
-	<table id="buttonsTable" alt="buttonsForAnswer">
-		<tr id="buttonsRows" alt="firstButtonRow">
-		<td><input id="answer1question6" type="submit" value="WINDOWS" alt="answer1"/></td>
-		<td><input id="answer2question6" type="submit" value="LINUX" alt="answer2"/></td>
-		<td><input id="answer3question6" type="submit" value="MAC" alt="answer3"/></td>
-		</tr>
-		<tr>
-		<td><input id="answer4question6" type="submit" value="OTHER" alt="answer4"/></td>
-		<td> <input id="answer5question6" type="submit" value="Don't use" alt="answer5"/></td>
-		</tr>
-	</table>
-
-	<script>question6 = new question(6);</script>
+   </div>
    </div>
 
    <div id="footer" alt="footer">
