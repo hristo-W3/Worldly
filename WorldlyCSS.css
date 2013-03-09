@@ -143,6 +143,7 @@
   *[id^='questionTitle']{
     text-align:center;
     font-size:30px;
+	font-family:Arial,serif;
     padding-bottom:20px;
     height:auto;
   }
