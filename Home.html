@@ -17,64 +17,35 @@
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
 <![endif]-->
 
-<script>
-$(function() {
-$( "#tabs" ).tabs();
-});
-</script>
 </head>
+<script type="text/javascript">
 
-<body>
- 
-  <ul id="menu" alt="basicMenuBar">  
-  <div id="contents1" alt="menuContents">
-    <li><a href="#" class="logo" alt="logo"><span></span></a></li>	
-    <li><a href="#" class="homeActive" alt=""><span></span></a></li>    	
-    <li><a href="Questions.html" class="questions" alt="questionsMenu"><span></span></a></li>	   	
-    <li><a href="History.html" class="history" alt="historyMenu"><span></span></a></li>	
-    <li><a href="" class="restOfBar" alt="freeBarSpace"></a></li>
-    <li><a href="Account.html" class="account" alt="accountMenu"><span></span></a></li>
-
-    <div class="loginLink" alt="linkToLoginOrRegister"><a href="">Login/Register</a></div>
-  </div>  
-  </ul>
-    
-  <div id="whiteSpace" alt="workingArea">     	
-  
-    <div id="questionSpace" alt="fieldToTypeQuestion">  
-      <table id="askMe" alt="tableWithButtonAndTextfield">  
-        <tr id="askMe" alt="tableRow">  
-	  <td><input id="question" type="text" name="question" alt="typeQuestion"></td> 
-	  <td> <input id="askButton" type="submit" value="Ask!" alt="buttonASK"/></td>	  
-	</tr>	  
-      </table>	
-    </div>	
-        
-    <div id="tabs" alt="listTopWeekQuestions">	 
-      <ul> 
-        <li><a href="#tabs-1" alt="question1">Question 1</a></li> 
-	<li><a href="#tabs-2" alt="question2">Question 2</a></li> 
-	<li><a href="#tabs-3" alt="question3">3</a></li> 
-	<li><a href="#tabs-4" alt="question4">4</a></li>
-	<li><a href="#tabs-5" alt="question5">5</a></li>
-      </ul>
-	 
-      <div id="tabs-1" alt="tab1"><div id="actualQuestion1">What OS do you use?</div>
-	  
-        <div id="map1" alt="map1"></div>  
-	<script type="text/javascript">	   
-
-    var key = 'e3989c63a20c4e83aa5d3644bc050b27';
+    function question(mapNo)
+	{
+	  $.post("returnActiveQuestion.php", { 'mapNo' : mapNo }, function(data){
+	  var returnValues = $.parseJSON(data);
+	  var questionID = returnValues.questionID[0];
+      var question = returnValues.question;
+	  document.getElementById("questionTitle" + mapNo).innerHTML = question;
+	  map = new map(mapNo, questionID);
+	  });
+	}
+	
+	var key = 'e3989c63a20c4e83aa5d3644bc050b27';
     var tiles = 'http://{s}.tile.cloudmade.com/'+key+'/22677/256/{z}/{x}/{y}.png';
     var attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
 	
-	function map(mapName, question)
+	function map(mapNo, questionID)
 	{
 	  var dataInput;
 	  var map;
-	  var questionID = question;
+	  var mapName = "map" + mapNo;
 	  
 	  map = L.map(mapName).setView([56.477, -2.246], 5);
+	  
+	  L.tileLayer(tiles, {
+                attribution: attr
+      }).addTo(map);
 	  
 	  function getColour(givenRef) 
 	  {
@@ -219,10 +190,6 @@ $( "#tabs" ).tabs();
 			 value == 6 ? '#CC99FF':
 			              'white';
 	}
-	
-    L.tileLayer(tiles, {
-                attribution: attr
-    }).addTo(map);
     
 	var dataLayer;
 	
@@ -282,7 +249,7 @@ $( "#tabs" ).tabs();
 				mouseout: resetHighlight,
 				click: zoomToFeature
 			});
-	} 
+	}
 	
 	var dataInput;
 	
@@ -312,10 +279,37 @@ $( "#tabs" ).tabs();
 	}; 
 
     info.addTo(map);
-  }
+}  
+
+</script>	
+
+<body>
+ 
+  <ul id="menu" alt="basicMenuBar">  
+  <div id="contents1" alt="menuContents">
+    <li><a href="#" class="logo" alt="logo"><span></span></a></li>	
+    <li><a href="#" class="homeActive" alt=""><span></span></a></li>    	
+    <li><a href="Questions.html" class="questions" alt="questionsMenu"><span></span></a></li>	   	
+    <li><a href="History.html" class="history" alt="historyMenu"><span></span></a></li>	
+    <li><a href="" class="restOfBar" alt="freeBarSpace"></a></li>
+    <li><a href="Account.html" class="account" alt="accountMenu"><span></span></a></li>
+
+    <div class="loginLink" alt="linkToLoginOrRegister"><a href="">Login/Register</a></div>
+  </div>  
+  </ul>
+    
+  <div id="whiteSpace" alt="workingArea">     	
   
-  map1 = new map('map1', 1);
-	</script>
+    <div id="questionSpace" alt="fieldToTypeQuestion">  
+      <table id="askMe" alt="tableWithButtonAndTextfield">  
+        <tr id="askMe" alt="tableRow">  
+	  <td><input id="question" type="text" name="question" alt="typeQuestion"></td> 
+	  <td> <input id="askButton" type="submit" value="Ask!" alt="buttonASK"/></td>	  
+	</tr>	  
+      </table>	
+    </div>		
+	<div id="questionTitle1">Why am I here?</div>
+    <div id="map1" alt="map1"></div>  
 
 	<table id="buttonsTable" alt="buttonsForAnswer">  
 	  <tr id="buttonsRows" alt="firstButtonRow">
@@ -329,52 +323,8 @@ $( "#tabs" ).tabs();
 	    <td> <input id="answer6" type="submit" value="I don't know" alt="answer6"/></td>
 	  </tr>
 	</table>
- 
-      </div> 
 
-      <div id="tabs-2" alt="tab2"><div id="actualQuestion2">Why am I here?</div>
-	    
-	<div id="map2" alt="map2"></div> 
-	  <script type="text/javascript">  
-	  
-	  map2 = new map('map2', 2);
-    
-	  </script>
-	 
-        <table id="buttonsTable" alt="buttonsForAnswer">  
-	  <tr id="buttonsRows" alt="firstButtonRow">
-	  <td><input id="answer1" type="submit" value="Pepsi"/></td>
-	  <td><input id="answer2" type="submit" value="Coca-Cola"/></td>
-	  <td><input id="answer3" type="submit" value="Other"/></td> 
-	  </tr>
-	</table>
-	 
-      </div>
-	 
-      <div id="tabs-3" alt="tab3"><div id="actualQuestion3">jhgfdsfgh</div>
-      <div id="map3" alt="map3"></div> 
-	  <script type="text/javascript">  
-	  
-	  map3 = new map('map3', 3);
-	  </script>
-      </div>
-
-      <div id="tabs-4" alt="tab4"><div id="actualQuestion4">dsgear</div>
-      <div id="map4" alt="map4"></div> 
-      <script type="text/javascript">  
-	  
-	  map4 = new map('map4', 4);
-	  </script>
-      </div>
-	 
-      <div id="tabs-5" alt="tab5"><div id="actualQuestion5">egrsers</div>
-      <div id="map5" alt="map5"></div> 
-      <script type="text/javascript">  
-	  
-	  map5 = new map('map5', 5);
-	  </script>
-      </div>	
-     </div>  
+	<script>question1 = new question(1);</script>
    </div>
    <div id="footer" alt="footer">
     <a href="aboutUs.html">AboutUs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="fag.html">FAQ</a>
