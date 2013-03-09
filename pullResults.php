@@ -4,6 +4,7 @@ $connection = mysql_connect("ramen.cs.man.ac.uk", "13_COMP10120_W3", "lVgWsvqulk
 mysql_select_db("13_COMP10120_W3", $connection)
     or die('Could not select database');
 
+$infoType = $_POST['infoType'];
 $questionID = $_POST['questionID'];
 	
 for($locIndex = 1; $locIndex <= 8; $locIndex++)

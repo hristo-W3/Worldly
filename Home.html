@@ -25,18 +25,25 @@ var questionMap;
 
 function question(mapNo)
 {
-$.post("returnActiveQuestion.php", { 'mapNo' : mapNo }, function(data){
-var returnValues = $.parseJSON(data);
-var questionID = returnValues.questionID[0];
-      var question = returnValues.question;
-document.getElementById("questionTitle" + mapNo).innerHTML = question;
-questionMap[mapNo] = new map(mapNo, questionID);
+  $.post("returnActiveQuestion.php", { 'mapNo' : mapNo }, function(data){
+    var returnValues = $.parseJSON(data);
+    var questionID = returnValues.questionID[0];
+    var question = returnValues.question;
+    document.getElementById("questionTitle" + mapNo).innerHTML = question;
+    questionMap[mapNo] = new map(mapNo, questionID);
+  });
+}
+
+function answsers(mapNo, questionID)
+{
+  $.post("pullResults.php", { 'questionID' : questionID, 'dataType' : 'map' }, function(data){
 });
 }
 
+
 var key = 'e3989c63a20c4e83aa5d3644bc050b27';
-    var tiles = 'http://{s}.tile.cloudmade.com/'+key+'/22677/256/{z}/{x}/{y}.png';
-    var attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
+var tiles = 'http://{s}.tile.cloudmade.com/'+key+'/22677/256/{z}/{x}/{y}.png';
+var attr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
 
 function map(mapNo, questionID)
 {
@@ -255,13 +262,13 @@ click: zoomToFeature
 
 var dataInput;
 
-    $.post("pullResults.php", { 'questionID' : questionID }, function(data){
-dataInput = $.parseJSON(data);
-dataLayer = L.geoJson(ukBoundaries, {
-style: style,
-onEachFeature: onEachFeature
-});
-      dataLayer.addTo(map[mapNo]);
+$.post("pullResults.php", { 'questionID' : questionID, 'dataType' : 'map' }, function(data){
+    dataInput = $.parseJSON(data);
+    dataLayer = L.geoJson(ukBoundaries, {
+    style: style,
+    onEachFeature: onEachFeature
+  });
+  dataLayer.addTo(map[mapNo]);
 });
 
     var info = L.control();
