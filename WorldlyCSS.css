@@ -139,8 +139,8 @@
  
 /* ----------------------------------------------------------------- HOME PAGE CSS--------- */
  
-  /*div for the text for questions */
-  *[id^='actualQuestion']{
+   /*div for the text for questions */
+  *[id^='questionTitle']{
     text-align:center;
     font-size:30px;
     padding-bottom:20px;
@@ -181,23 +181,6 @@
     width:1000px;
  }
 
- /* size of the text fields of login */
-  #userHome{
-    height:15px;
-    width:170px;
-  }
-  #passHome{
-    height:15px;
-    width:170px;
-  }
-
-  /* every tab consists of separate div formated as follows*/
-  #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5{
-    background-color:white;
-    width:auto;
-    height:auto;
-  }
-
   /* the table for buttons (answers) */
   #buttonsTable{
     padding-top:40px;
@@ -212,7 +195,7 @@
   }
 
   /* next bits are for the different answer buttons */
-  #answer1, #answer2, #answer3, #answer4, #answer5, #answer6{
+  *[id^='answer1question'],  *[id^='answer2question'],  *[id^='answer3question'],  *[id^='answer4question'],  *[id^='answer5question'],  *[id^='answer6question']{
     border-style:solid;
     border-width:3px;   
     background-color:white;
@@ -220,45 +203,45 @@
     height:40px;
     border-radius: 8px;
   }
-  #answer1{
+  *[id^='answer1question']{
     border-color:#FF6666;
   }
-  #answer1:hover{
+ *[id^='answer1question']:hover{
     background:#FF9966;
   }
 
-  #answer2{
+ *[id^='answer2question']{
     border-color:#00FF00;   
   }
-  #answer2:hover{
+ *[id^='answer2question']:hover{
   background:#99FF99;
   }
 
-  #answer3{
+  *[id^='answer3question']{
     border-color:#FFFF00;
   } 
-  #answer3:hover{
+  *[id^='answer3question']:hover{
     background:#FFFF99;
   }
 
-  #answer4{
+ *[id^='answer4question']{
     border-color:#FF00CC;
   }
-  #answer4:hover{
+  *[id^='answer4question']:hover{
   background:#FF66FF;
   }
 
-  #answer5{
+  *[id^='answer5question']{
     border-color:#00CCFF;
   } 
-  #answer5:hover{
+  *[id^='answer5question']:hover{
     background:#99FFFF;
   }  
 
-  #answer6{
+  *[id^='answer6question']{
     border-color:#9966CC;
   }
-  #answer6:hover{
+  *[id^='answer6question']:hover{
     background:#CC99FF;
   }
   #questionText{
