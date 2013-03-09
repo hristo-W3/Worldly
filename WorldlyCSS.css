@@ -123,6 +123,7 @@
     margin-left:auto;
     margin-right:auto;
     margin-bottom: 15px;
+    padding-bottom:30px;
     height:auto;
     width:1000px;  
  
@@ -153,7 +154,7 @@
   }
   /* table that contains text field and button for ASK question */
   #askMe{
-    padding-bottom:30px;
+    padding-bottom:15px;
     padding-top:30px;
     margin-left:auto;
     margin-right:auto;
