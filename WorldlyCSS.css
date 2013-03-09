@@ -139,7 +139,27 @@
 
  
 /* ----------------------------------------------------------------- HOME PAGE CSS--------- */
- 
+ /* div for the fast links*/
+  #fastLinks{
+    width:1000px;
+    margin-right:auto;
+    margin-left:auto;
+}
+ /* area that holds the text box for ask question and the button*/
+ #AskArea{
+    -moz-box-shadow: 0 5px 10px 3px #6497B0;
+    -webkit-box-shadow: 0 5px 10px 3px #6497B0;
+    box-shadow: 0 5px 10px 3px #6497B0;
+    border-radius:5px;
+    -moz-border-radius:15px;
+    background-color: #F5F5F5;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 20px;
+    height:auto;
+    width:1000px;  
+    padding-bottom:none;
+ }
    /*div for the text for questions */
   *[id^='questionTitle']{
     text-align:center;
